@@ -1,0 +1,576 @@
+<!--##02c7dec7-5f64-49d6-beae-6625d1de688e##-->
+<!--##BSEHRM00200##-->
+<!--##nJnqlaYyx89EEvo0LGbMRkqusWqdSzCTq5kYeocs028=##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: BSEHRM00200
+  # PageTitle: 어학이력등록 (단일 그리드)
+  # Server: http://localhost:8090/
+-->
+<!--
+
+-->
+
+<div class="dews-ui-container-panel">
+  <div class="dews-container-item" data-dews-position="normal">
+    <h4 class="dews-ui-title">기본정보</h4>
+  </div>
+</div>
+<div class="dews-ui-container-panel">
+  <div class="dews-container-item" data-dews-position="normal">
+    <div id="formPanel" class="dews-ui-form-panel" data-dews-columns="4">
+      <ul>
+        <li>
+          <label>사번</label>
+          <span>
+            <input id="EMP_NO" name="EMP_NO" type="text" class="dews-ui-textbox basic" readonly="readonly" />
+          </span>
+        </li>
+        <li>
+          <label>성명</label>
+          <span>
+            <input id="KOR_NM" name="KOR_NM" type="text" class="dews-ui-textbox basic" readonly="readonly" />
+          </span>
+        </li>
+        <li>
+          <label>부서</label>
+          <span>
+            <input id="DEPT_NM" name="DEPT_NM" type="text" class="dews-ui-textbox basic" readonly="readonly" />
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="dews-ui-container-panel">
+  <div class="dews-container-item" data-dews-position="normal">
+    <h4 class="dews-ui-title">조회조건</h4>
+  </div>
+</div>
+<div class="dews-ui-container-panel">
+  <div class="dews-container-item" data-dews-position="normal">
+    <div id="conditionPanel" class="dews-ui-form-panel" data-dews-columns="4">
+      <ul>
+        <li>
+          <label>시험기간</label>
+          <span>
+            <span id="s_LANG_TEST_DT" class="dews-ui-periodpicker required"></span>
+          </span>
+        </li>
+        <li>
+          <label>처리상태</label>
+          <span>
+            <select id="s_PRGR_ST_CD" name="s_PRGR_ST_CD" class="dews-ui-dropdownlist basic" data-dews-value-field="SYSDEF_CD" data-dews-text-field="SYSDEF_NM" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+          </span>
+        </li>
+        <li>
+          <label>시험구분</label>
+          <span>
+            <select id="s_LANG_TEST_FG" name="s_LANG_TEST_FG" class="dews-ui-dropdownlist basic" data-dews-value-field="SYSDEF_CD" data-dews-text-field="SYSDEF_NM" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+          </span>
+        </li>
+        <li>
+          <label>어학구분</label>
+          <span>
+            <select id="s_LANG_FG_CD" name="s_LANG_FG_CD" class="dews-ui-dropdownlist basic" data-dews-value-field="SYSDEF_CD" data-dews-text-field="SYSDEF_NM" data-dews-show-tooltip="true" data-dews-option-label-value="" data-dews-option-label-text="" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="dews-ui-container-panel">
+  <div class="dews-container-item" data-dews-position="normal">
+    <div class="dews-button-group" style="text-align: right;">
+      <h4 class="dews-ui-title">조회정보</h4>
+    </div>
+  </div>
+</div>
+<div class="dews-ui-container-panel" data-dews-fit-bottom="true">
+  <div class="dews-container-item" data-dews-position="normal">
+    <div id="mstGrid" class="dews-ui-grid"></div>
+  </div>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0.221103.2';
+    self.version.service='BSEHRM00200_SERVICE';
+
+
+    /*85d79d6e-3a8a-4920-a6b2-4246f35bbdd8*/ /*
+      * 어학이력등록（단일　그리드）
+      * 작성자 : 김승혁
+      * 작성일 : 2022-11-01
+      */
+    
+    // 메인버튼 삭제 버튼의 기본 확인 메시지 사용 여부 설정
+    self.mainButtons.delete.useDefaultConfirm = false;
+    
+    // 기본정보 (사번, 이름, 부서) 바인딩
+    self.formPanel.bindData({
+        EMP_NO: self.user.empCode,
+        KOR_NM: self.user.username,
+        DEPT_NM: self.user.deptName,
+    }); // self = dews.ui.page
+    
+    /*
+     처리상태 : Z002_10005
+     시험구분 : ZR39_10005
+     어학구분 : ZR40_10005
+    */
+    var sourceDtl;
+    self.sourceDtl = getCodeDtlDataSource("HR", ";Z002_10005|;ZR39_10005|;ZR40_10005", null, null, null, null, null);
+    // // 처리상태 드롭다운 리스트
+    self.s_PRGR_ST_CD.setDataSource(self.sourceDtl.HR.Z002_10005);
+    // // 시험 구분드롭다운 리스트
+    self.s_LANG_TEST_FG.setDataSource(self.sourceDtl.HR.ZR39_10005);
+    // // 어학구분 드롭다운 리스트 -- pipe로 사용함
+    // self.s_LANG_FG_CD.setDataSource(self.sourceDtl.HR.ZR40_10005);
+    
+    // lang_test_dt default data 연초 ~ 당일
+    self.s_LANG_TEST_DT.setEarlyYears();
+    
+    
+    
+    self.dataSourceMst = dews.ui.dataSource('dataSourceMst', {
+      grid: true,
+      transport: {
+        read: {
+          type: 'post',
+          url: dews.url.getApiUrl('HR', 'BSEHRM00200_SERVICE', 'selectList_lang_mst'),
+          data: function () {
+            return {
+              lang_test_dt_start_dt: self.s_LANG_TEST_DT.getStartDate(),
+              lang_fg_cd: self.s_LANG_FG_CD.value(),
+              lang_test_fg: self.s_LANG_TEST_FG.value(),
+              lang_test_dt_end_dt: self.s_LANG_TEST_DT.getEndDate(),
+              prgr_st_cd: self.s_PRGR_ST_CD.value()
+            };
+          }
+        }
+      },
+      schema: {
+        model: {
+          fields: [
+            { field: '_uid', editable: false, dataType: 'string' }, 
+            { field: 'EMP_NO', editable: false, dataType: 'string' }, 
+            { field: 'LANG_TEST_DT', editable: false, dataType: 'string' }, 
+            { field: 'LANG_TEST_FG', editable: false, dataType: 'string' }, 
+            { field: 'LANG_FG_CD', editable: false, dataType: 'string' }, 
+            { field: 'VLID_DT', editable: false, dataType: 'string' }, 
+            { field: 'REQ_DT', editable: false, dataType: 'string' }, 
+            { field: 'TEST_PLCE_NM', editable: false, dataType: 'string' }, 
+            { field: 'LANG_LISNG_PT', editable: false, dataType: 'number' }, 
+            { field: 'LANG_RDNG_PT', editable: false, dataType: 'number' }, 
+            { field: 'LANG_WRTNG_PT', editable: false, dataType: 'string' }, 
+            { field: 'LANG_SPKNG_PT', editable: false, dataType: 'string' }, 
+            { field: 'LANG_TOT_PT', editable: false, dataType: 'number' }, 
+            { field: 'LANG_GRD_FG', editable: false, dataType: 'string' }, 
+            { field: 'LANG_ASSTN_AMT', editable: false, dataType: 'string' }, 
+            { field: 'LANG_INCNPAY_YN', editable: false, dataType: 'string' }, 
+            { field: 'LANG_TEST_NO', editable: false, dataType: 'string' }, 
+            { field: 'PRGR_ST_CD', editable: false, dataType: 'string' }, 
+            { field: 'APRVL_REQN_DT', editable: false, dataType: 'string' }, 
+            { field: 'RJT_REASON_DC', editable: false, dataType: 'string' }, 
+            { field: 'RJT_MAN_ID', editable: false, dataType: 'string' }, 
+            { field: 'RJT_DTS', editable: false, dataType: 'string' }, 
+            { field: 'CNCL_REASON_DC', editable: false, dataType: 'string' }, 
+            { field: 'INSERT_ID', editable: false, dataType: 'string' }, 
+            { field: 'INSERT_DTS', editable: false, dataType: 'string' }, 
+            { field: 'UPDATE_ID', editable: false, dataType: 'string' }, 
+            { field: 'UPDATE_DTS', editable: false, dataType: 'string' }, 
+            { field: 'COMPANY_CD', editable: false, dataType: 'string' }
+          ]
+    
+        }
+      },
+      error: /*717ad061-381f-474e-a7c8-8c03652738b2*/ function (e) {
+        dews.ui.loading.hide();
+        dews.error(e.message);
+    }
+    
+    });
+    dews.api.get(dews.url.getApiUrl('CM', 'CommonCodeDtlService', 'common_ci_codeDtl_list'),{
+      async: false,
+      data: {
+          end_dt: '',
+          foreign_yn: '',
+          field_cd_pipe: 'ZR39_10005|Z002_10005|ZR40_10005',
+          module_cd: 'HR',
+          syscode_yn: '',
+          keyword: '',
+          base_yn: ''
+      }
+    }).done(function (data) {
+      var ar_ZR39_10005 = new Array();
+      var ar_Z002_10005 = new Array();
+      var ar_ZR40_10005 = new Array();
+    
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].FIELD_CD == "ZR39_10005") { 
+          ar_ZR39_10005.push(data[i]); 
+    
+        }
+        else if (data[i].FIELD_CD == "Z002_10005") { 
+          ar_Z002_10005.push(data[i]); 
+    
+        }
+        else if (data[i].FIELD_CD == "ZR40_10005") { 
+          ar_ZR40_10005.push(data[i]); 
+    
+        }
+      }
+      self.pipeDataSource1_ZR39_10005 = dews.ui.dataSource('pipeDataSource1_ZR39_10005',  { data: ar_ZR39_10005 });
+      self.pipeDataSource1_Z002_10005 = dews.ui.dataSource('pipeDataSource1_Z002_10005',  { data: ar_Z002_10005 });
+      self.pipeDataSource1_ZR40_10005 = dews.ui.dataSource('pipeDataSource1_ZR40_10005',  { data: ar_ZR40_10005 });
+      self.pipeDataSource1 = dews.ui.dataSource('pipeDataSource1', { data: data });
+      
+    });
+    
+    
+    dews.ui.mainbuttons.localize.disable(true);
+    dews.ui.mainbuttons.add.click(/*c5ac58fe-555d-4d06-a008-cff5ae614917*/ function () {
+        try {
+            self.mstGrid.addRow(); // 행 추가
+            self.mstGrid.setCellValue(self.mstGrid.select(), 'PRGR_ST_CD', '0002'); // 처리상태 기본값 승인대기로 설정
+        } catch (error) {
+            console.error(error);
+            dews.error(error);
+        }
+    });
+    dews.ui.mainbuttons.search.click(/*1d82fb88-64a0-4458-95a7-80400d8679fe*/ function () {
+        try {
+            // conditionPanel의 조회조건의 필수값 검사가 필요한경우
+            if (!self.conditionPanel.validate()) {
+                return;
+            }
+            if (self.dataSourceMst.getDirtyDataCount() > 0) { // 생성, 수정, 삭제 건수가 1건이라도 있는 경우
+                dews.confirm('저장하지 않은 데이터가 있습니다.' + '\n' + '조회를 계속하시겠습니까?', "ico2")
+                    .yes(function () { // 컨펌에 YES를 할 시에 조회 실행
+                        searchData();
+                    })
+            } else { // 생성, 수정, 삭제 건수가 1건도 없을 경우
+                searchData(); // 묻지않고 조회 실행
+            }
+        } catch (error) {
+            console.error(error);
+            dews.error(error);
+        }
+    });
+    dews.ui.mainbuttons.delete.click(/*71c87f46-a027-4381-8dda-ef62c1860b24*/ function () {
+        // TODO: 삭제시 강제 팝업에 대한 알림창을 끕니다.
+        // self.mainButtons.delete.useDefaultConfirm = false; (preReady 단에 넣어 주었음)
+        try {
+            // 체크된 행 인덱스를 가진 배열
+            var checkArray = self.mstGrid.getCheckedIndex();
+    
+            if (checkArray.length == 0) { // 체크된 행이 없다면
+                dews.ui.snackbar.warning("체크된 행이 없습니다."); // 스낵바 경고 띄우기
+                return;
+            }
+            //삭제에 대한 confirm icon : ico2
+            dews.confirm("삭제하시겠습니까?", "ico2")
+                .yes(function () {
+                    // 단일행
+                    // self.mstGrid.removeRow(self.mstGrid.select());
+                    // 체크
+                    self.mstGrid.removeRow(checkArray); // 체크된 행 모두 삭제하기
+                    dews.ui.snackbar.info("저장을 눌러 삭제를 완료하세요.")
+                });
+        } catch (error) {
+            console.error(error);
+            dews.error(error);
+        }
+    });
+    dews.ui.mainbuttons.save.click(/*e81ee8b4-32a5-495b-a5df-fe22269a09a3*/ function () {
+        try {
+            self.mstGrid.commitCell() // 그리드에서 현재 수정 중인 셀의 값을 commit하고 수정모드 종료
+            var val;
+    
+            if (!verify()) {  // self.mstGrid.validate().result : validate 결과값 => 유효성 검사에 위배되었다면,
+                var row = self.mstGrid.validate().fields[0].rowIndex; // 유효성 검사 결과가 false 인 첫번째 필드의 rowIndex
+                var field = self.mstGrid.validate().fields[0].columnName; // 유효성 검사 결과가 false 인 첫번째 필드의 columnName
+                var baseColumn = self.mstGrid._onegrid.baseColumns; // 그리드의 모든 컬럼들
+    
+                for (var i = 0; i < baseColumn.length; i++) { // 모든 컬럼 수 만큼 반복
+    
+                    if (baseColumn[i].field == field) { // i번째 컬럼의 field(ex.EMP_NO) 이 위배된 컬럼과 같다면,
+                        val = baseColumn[i].title // val 변수에 해당 컬럼의 컬럼명 값을 저장
+                    }
+                }
+                dews.alert(val + ' (은)는 필수적으로 입력해줘야합니다!', "error").done(function () {
+                    // 확인 버튼 클릭 시 수행할 코드
+                });
+                self.mstGrid.select(row, field); // 유효성 검사 결과가 false인 첫번째 필드를 select
+                return; // if 문 조건에 해당되면 if 문 내용만 실행시키고 상황 종료, 조건에 안맞으면 if 문 아래 코드가 실행
+            }
+    
+            if (self.dataSourceMst.getDirtyDataCount() == 0) { // getDirtyData.Added, Deleted, Updated (변경된 데이터가 없다면)
+                dews.ui.snackbar.warning("변경된 사항이 없습니다.");
+                return;
+            }
+    
+            // TO-BE
+            dews.confirm("데이터를 저장 하시겠습니까?", "ico2").yes(function (confirm) { // 아무 문제 없다면 저장 재확인하기 -> yes 누르면 창 닫고 saveData
+                confirm.on("closed", function () {
+                    saveData();
+                });
+            });
+        } catch (error) {
+            console.error(error);
+            dews.error(error);
+        }
+    });
+    self.s_LANG_FG_CD.setDataSource(self.pipeDataSource1_ZR40_10005);
+    dews.ui.grid(self.$mstGrid, {
+      dataSource: self.dataSourceMst,
+      editable: true,
+      selectable: true,
+      sortable: false,
+      autoBind: false,
+      noData: true,
+      noDataMessage: '데이터가 없습니다',
+      copyMode: 'cell',
+      columns: [
+        {
+          field: '_uid',
+          title: '_uid',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'EMP_NO',
+          title: '사번',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'LANG_TEST_DT',
+          title: '시험일',
+          width: 80,
+          attributes: { class: 'required' },
+          formats: {
+            type: 'date',
+            predefined: true,
+            format: 'MA0007'
+          },
+          editor: {
+            type: 'date',
+            predefined: true,
+            format: 'MA0007'
+          }
+        },
+        {
+          field: 'LANG_TEST_FG',
+          title: '시험구분',
+          width: 60,
+          attributes: { class: 'required' },
+          editor: {
+            type: 'dropDown',
+            dataSource: self.sourceDtl.HR.ZR39_10005,
+            dataValueField: 'SYSDEF_CD',
+            dataTextField: 'SYSDEF_NM'
+          }
+        },
+        {
+          field: 'LANG_FG_CD',
+          title: '어학구분',
+          width: 80,
+          attributes: { class: 'required' },
+          editor: {
+            type: 'dropDown',
+            dataSource: self.pipeDataSource1_ZR40_10005,
+            dataValueField: 'SYSDEF_CD',
+            dataTextField: 'SYSDEF_NM'
+          }
+        },
+        {
+          field: 'VLID_DT',
+          title: '유효일',
+          width: 80,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'REQ_DT',
+          title: '요청일',
+          width: 80,
+          visible: false,
+          formats: {
+            type: 'date',
+            predefined: true,
+            format: 'MA0007'
+          },
+          editor: {
+            type: 'date',
+            predefined: true,
+            format: 'MA0007'
+          }
+        },
+        {
+          field: 'LANG_TOT_PT',
+          title: '총점',
+          width: 60
+        },
+        {
+          field: 'PRGR_ST_CD',
+          title: '처리 상태',
+          width: 80,
+          attributes: { class: 'readonly' },
+          editor: {
+            type: 'dropDown',
+            dataSource: self.sourceDtl.HR.Z002_10005,
+            dataValueField: 'SYSDEF_CD',
+            dataTextField: 'SYSDEF_NM'
+          }
+        },
+        {
+          field: 'COMPANY_CD',
+          title: '회사코드',
+          width: 80,
+          visible: false
+        }
+      ],
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      }
+    });
+    
+    
+    
+    
+    /*458db9f4-918c-4c26-87e5-f87675ab0d35*/ self.mstGrid.setOptions({
+        dataBound: function (e) {
+            dews.ui.loading.hide(); // 로딩화면 숨기기
+        }, save: function (e) {
+            try {
+            } catch (error) {
+                dews.error(error);
+                console.error(error);
+            }
+        },
+        /**
+         * 수정한 셀의 값을 검증하는 이벤트
+         * @param {object}  e.grid 그리드 객체
+         * @param {number}  e.row.index 수정할 행의 index
+         * @param {string}  e.cell.field 수정한 셀의 필드명
+         * @param {array}   e.cell.data 수정한 셀의 값
+         */
+        validationCheck: function (e) {
+            try {
+            } catch (error) {
+                dews.error(error);
+                console.error(error);
+            }
+        }
+    });
+    
+    function verify() {
+        return self.mstGrid.validate().result; // true(검사 통과) 또는 false 반환
+    };
+    
+    function searchData() {
+        try {
+            dews.ui.loading.show({ // 로딩화면 보여주기
+                text: '조회중입니다.'
+            });
+            self.dataSourceMst.read();  // 데이터소스 Read
+        } catch (error) {
+            dews.ui.loading.hide();
+        }
+    }
+    
+    // TO-BE
+    function saveData() {
+        dews.api.post(dews.url.getApiUrl('HR', 'BSEHRM00200_SERVICE', 'lang_mst_save'), {
+            async: false,
+            data: {
+                //단일 그리드
+                dataSourceMst: JSON.stringify(self.dataSourceMst.getDirtyData()) // getDirtyData() : 변경된 항목을 가져옵니다
+            }
+        }).done(function (data) {
+            dews.ui.snackbar.ok('자료가 정상적으로 저장되었습니다.');
+    
+            self.dataSourceMst.read(); // 재조회
+        })
+            .fail(function (error) {
+                dews.error(error.responseJSON.message);
+                console.error(error.responseJSON.message);
+            });
+    }
+    
+    // 보통 함수는 ready 영역에 선언
+    // 공통 코드 사용 위한 함수 1
+    function getCodeDtlDataSource(module_cd, field_cd_pipe, syscode_yn, base_yn, foreign_yn, end_dt, keyword) {
+        if (!module_cd || !field_cd_pipe) {
+            return null;
+        }
+    
+        var codeDataSources = {};
+        codeDataSources[module_cd] = {};
+    
+        dews.api.get(dews.url.getApiUrl("CM", "CommonCodeDtlService", "common_codeDtl_list"), {
+            async: false,
+            data: {
+                module_cd: module_cd,
+                field_cd_pipe: field_cd_pipe.replace(/;/g, ""),
+                syscode_yn: syscode_yn,
+                base_yn: base_yn,
+                foreign_yn: foreign_yn,
+                end_dt: end_dt,
+                keyword: keyword,
+            }
+        }).done(function (data) {
+            field_cd_pipe.split("|").forEach(function (fieldCd) {
+                var isAddEmpty = fieldCd.startsWith(";");
+                fieldCd = fieldCd.replace(";", "");
+                codeDataSources[module_cd][fieldCd] = createCodeDtlDataSource(fieldCd, data, isAddEmpty);
+            });
+        }).fail(function (error) {
+            dews.error(error.responseJSON.message);
+        });
+    
+        return codeDataSources;
+    };
+    // 공통 코드 사용 위한 함수 2
+    function createCodeDtlDataSource(fieldCd, data, isAddEmpty) {
+        var filterData = data.filter(function (row) { return row.FIELD_CD == fieldCd; });
+        if (isAddEmpty) {
+            filterData.unshift({ FIELD_CD: fieldCd, SYSDEF_CD: "", SYSDEF_NM: "", FLAG_CD: "", END_DT: "", SYSCODE_YN: "" });
+        }
+    
+        var dataSource = dews.ui.dataSource(fieldCd, {
+            data: filterData,
+            schema: {
+                model: { id: "SYSDEF_CD" }
+            }
+        });
+        dataSource.read();
+    
+        return dataSource;
+    }
+    
+    //# sourceURL=BSEHRM00200.js
+    
+    
+
+  
+  });
+
+</script>
