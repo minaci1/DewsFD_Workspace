@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>http://localhost:8090</url>
+  </server>
+  <serverdbsearch>
+    <url>http://localhost:8090</url>
+  </serverdbsearch>
+  <module>
+    <name>HR</name>
+    <desc>인사관리</desc>
+  </module>
+  <BaseInfo>
+    <UID>e12b1acb-f9c2-4ce3-add2-9abd5cd9b4ee</UID>
+  </BaseInfo>
+  <variables />
+  <outputs>
+    <output>
+      <outputPath>C:\Users\sonmina\gerp-front-bootstrap\view\HR\PAMODM</outputPath>
+      <outputUse>True</outputUse>
+    </output>
+  </outputs>
+</Environment>
