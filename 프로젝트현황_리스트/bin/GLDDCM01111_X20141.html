@@ -1,0 +1,575 @@
+<!--##3c5e3255-041c-49af-bc6a-f80fb1ab9a4d##-->
+<!--##GLDDCM01111_X20141##-->
+<!--##GYR7Di2b1OpnKu5tnaDhP+kpQZJ2KzPvNVY4iU5M0u+iZVP7BTW04OJolCVnpvsT##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: GLDDCM01111_X20141
+  # PageTitle: 프로젝트현황(리스트)
+  # Server: https://dev.comet.duzon.net/
+-->
+<!--
+
+-->
+
+<div id="searchCondition" class="dews-ui-condition-panel">
+  <ul class="required-area">
+    <li>
+      <label class="dews-ui-multilingual">회계단위</label>
+      <span>
+        <select id="pc_cd" name="pc_cd" class="dews-ui-multicodepicker required" data-dews-help-code="H_MA_PC_MST_S" data-dews-code-field="PC_CD" data-dews-text-field="PC_NM" data-dews-help-title="회계단위 도움창" data-dews-help-custom="false" data-dews-help-size="medium" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">회계일</label>
+      <span>
+        <span id="actg_dt" class="dews-ui-periodpicker required"></span>
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">조회구분</label>
+      <span>
+        <select id="search_cd" name="search_cd" class="dews-ui-dropdownlist required" data-dews-value-field="MNGD_CD" data-dews-text-field="MNGD_NM" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual required">계정레벨</label>
+      <span>
+        <select id="acctlv_cd" name="acctlv_cd" class="dews-ui-dropdownlist basic" data-dews-value-field="SYSDEF_CD" data-dews-text-field="SYSDEF_NM" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">계정</label>
+      <span>
+        <select id="acct_cd" name="acct_cd" class="dews-ui-multicodepicker basic" data-dews-help-code="H_MA_COA_MST_S02" data-dews-code-field="ACCT_CD" data-dews-text-field="ACCT_NM" data-dews-help-title="계정 도움창" data-dews-help-custom="false" data-dews-help-size="big" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">프로젝트</label>
+      <span>
+        <select id="pjt_cd" name="pjt_cd" class="dews-ui-multicodepicker basic" data-dews-help-code="H_PS_WBS_MST_C" data-dews-code-field="WBS_NO" data-dews-text-field="WBS_NM" data-dews-help-title="프로젝트 도움창" data-dews-help-custom="true" data-dews-bind-code="PJT_CD" data-dews-bind-text="PJT_NM" data-dews-help-view-url="~/codehelp/PS/H_PS_WBS_MST_C" data-dews-help-size="big" />
+      </span>
+    </li>
+  </ul>
+  <ul class="optional-area">
+    <li>
+      <label class="dews-ui-multilingual">비용센터그룹</label>
+      <span>
+        <select id="ccgrp_cd" name="ccgrp_cd" class="dews-ui-multicodepicker basic" data-dews-help-code="H_MA_CCGRP_MST_S" data-dews-code-field="CCGRP_CD" data-dews-text-field="CCGRP_NM" data-dews-help-title="비용센터그룹 도움창" data-dews-help-custom="false" data-dews-help-size="medium" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">비용센터</label>
+      <span>
+        <select id="cc_cd" name="cc_cd" class="dews-ui-multicodepicker basic" data-dews-help-code="H_MA_CC_MST_S" data-dews-code-field="CC_CD" data-dews-text-field="CC_NM" data-dews-help-title="비용센터 도움창" data-dews-help-custom="false" data-dews-help-size="big" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">거래처</label>
+      <span>
+        <select id="partner_cd" name="partner_cd" class="dews-ui-multicodepicker basic" data-dews-help-code="H_MA_PARTNER_MST_S" data-dews-code-field="PARTNER_CD" data-dews-text-field="PARTNER_NM" data-dews-help-title="거래처 도움창" data-dews-help-custom="false" data-dews-help-size="largebig" />
+      </span>
+    </li>
+  </ul>
+</div>
+<div class="dews-ui-container-panel" style="overflow: scroll;" data-dews-fit-bottom="true">
+  <div class="dews-container-item" data-dews-position="normal">
+    <div id="gridMaster" class="dews-ui-grid"></div>
+  </div>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0.20230620-01';
+    self.version.service='GLDDCM01111_X20141Service';
+
+
+    /*d7d09614-8336-4738-ab09-3cc101fd8cce*/ self.actg_dt.setupToday();
+    if (self.user.profitCenterCode && self.user.profitCenterName) {
+        self.pc_cd.setData([{
+            PC_CD: self.user.profitCenterCode,
+            PC_NM: self.user.profitCenterName
+        }]);
+    }
+    dews.ajax.script('~/view/js/FI/fi.cm.js', {
+        once: true,
+        async: false
+    }).done(function () {
+        helper = gerp.FI;
+    }).fail(function (xhr, status, error) {
+        dews.alert("Common API Service not found", "error");
+    });
+    
+    dews.ajax.script('~/view/js/FI/fi.cm.util.js', {
+        once: true,
+    }).done(function () {
+        httpUtil = gerp.FI_CM_UTIL.HttpUtil;
+    }).fail(function (xhr, status, error) {
+        dews.alert("Common API Service not found", "error");
+    });
+    
+    setSearchCode();
+    setAcoountLevelCode();
+    
+    
+    
+    
+    self.gridDatasource = dews.ui.dataSource('gridDatasource', {
+      grid: true,
+      transport: {
+        read: {
+          url: dews.url.getApiUrl('FI', 'GLDDCM01111_X20141Service', 'masterList'),
+          data: function () {
+            return {
+              pc_cd: self.pc_cd.codes().join('|'),
+              start_actg_dt: self.actg_dt.getStartDate(),
+              end_actg_dt: self.actg_dt.getEndDate(),
+              search_cd: self.search_cd.value(),
+              acct_cd: self.acct_cd.codes().join('|'),
+              pjt_cd: self.pjt_cd.codes().join('|'),
+              ccgrp_cd: self.ccgrp_cd.codes().join('|'),
+              cc_cd: self.cc_cd.codes().join('|'),
+              partner_cd: self.partner_cd.codes().join('|')
+            };
+          }
+        }
+      },
+      schema: {
+        model: {
+          fields: [
+            { field: 'COMPANY_CD', editable: false, dataType: 'string' }, 
+            { field: 'PC_CD', editable: false, dataType: 'string' }, 
+            { field: 'DOCU_NO', editable: false, dataType: 'string' }, 
+            { field: 'ACTG_NO', editable: false, dataType: 'string' }, 
+            { field: 'ACTG_DT', editable: false, dataType: 'string' }, 
+            { field: 'GAAP_CD', editable: false, dataType: 'string' }, 
+            { field: 'DRCRFG_CD', editable: false, dataType: 'string' }, 
+            { field: 'ACCT_CD', editable: false, dataType: 'string' }, 
+            { field: 'ACCT_NM', editable: false, dataType: 'string' }, 
+            { field: 'NOTE_DC', editable: false, dataType: 'string' }, 
+            { field: 'PARTNER_CD', editable: false, dataType: 'string' }, 
+            { field: 'PARTNER_NM', editable: false, dataType: 'string' }, 
+            { field: 'CC_CD', editable: false, dataType: 'string' }, 
+            { field: 'CC_NM', editable: false, dataType: 'string' }, 
+            { field: 'PJT_CD', editable: false, dataType: 'string' }, 
+            { field: 'PJT_NM', editable: false, dataType: 'string' }, 
+            { field: 'CCGRP_CD', editable: false, dataType: 'string' }, 
+            { field: 'CCGRP_NM', editable: false, dataType: 'string' }, 
+            { field: 'DOCU_AMT', editable: false, dataType: 'number' }, 
+            { field: 'START_DT', editable: false, dataType: 'string' }, 
+            { field: 'END_DT', editable: false, dataType: 'string' }, 
+            { field: 'FLAG_CD', editable: false, dataType: 'string' }, 
+            { field: 'DR_AMT', editable: false, dataType: 'number' }, 
+            { field: 'CR_AMT', editable: false, dataType: 'number' }
+          ]
+    
+        }
+      },
+      error: /*6f96a053-2439-47af-bd3b-14779d1f9639*/ function (e) {
+        console.log(e);    
+        dews.ui.loading.hide();
+        dews.ui.snackbar.error(e);
+    }
+    });
+    
+    
+    dews.ui.mainbuttons.localize.disable(true);
+    dews.ui.mainbuttons.approval.hide();
+    dews.ui.mainbuttons.etnapproval.hide();
+    dews.ui.mainbuttons.add.hide();
+    dews.ui.mainbuttons.search.click(/*49889da9-8d52-44ef-80ce-b8b88e776cf7*/ function () {
+        if (self.searchCondition.validate({ tooltip: true, message: '필수 항목을 입력해 주십시요.' })) {
+            searchData();
+        }
+    });
+    dews.ui.mainbuttons.delete.hide();
+    dews.ui.mainbuttons.save.hide();
+    self.pc_cd.setHelpParams(function () {
+      return {
+        company_cd: dews.ui.page.user.companyCode
+      };
+    });
+    self.acctlv_cd.on('change', /*61ab0467-2e15-4a4c-9eaf-b306a5046923*/ function (e) {
+        self.acct_cd.clear();
+        var acct_lv = self.acctlv_cd.value();
+    
+        var options;
+        self.acct_cd.options = {};
+    
+        if (acct_lv == '11') { //전표기표계정전체
+            options = {
+                helpCode: "H_MA_COA_MST_S02",
+                textField: "ACCT_NM",
+                codeField: "ACCT_CD",
+                helpSize: "big",
+                helpTitle: "계정 도움창"
+            }
+        } else {
+            options = {
+                helpCode: "H_MA_COA_MST_S",
+                textField: "ACCT_NM",
+                codeField: "ACCT_CD",
+                helpSize: "largeBig",
+                helpParams: {
+                    combo0: acct_lv,
+                },
+                helpTitle: "계정 도움창"
+            }
+        }
+    
+        self.acct_cd.setOptions(options);
+    });
+    self.acct_cd.setHelpParams(function () {
+      return {
+        date: self.actg_dt.getEndDate()
+      };
+    });
+    self.pjt_cd.setHelpParams(function () {
+      return {
+        pjt_no: '',
+        pjt_nm: '',
+        plan_element_yn: '',
+        acct_altm_element_yn: '',
+        bill_element_yn: ''
+      };
+    });
+    self.ccgrp_cd.setHelpParams(function () {
+      return {
+        company_cd: dews.ui.page.user.companyCode,
+        ccgrp_ctgry_cd: ''
+      };
+    });
+    self.partner_cd.setHelpParams(function () {
+      return {
+        company_cd: dews.ui.page.user.companyCode,
+        use_yn: '',
+        decrypt_yn: '',
+        bckissue_yn: ''
+      };
+    });
+    dews.ui.grid(self.$gridMaster, {
+      dataSource: self.gridDatasource,
+      height: 175,
+      sortable: false,
+      autoBind: false,
+      checkable: false,
+      noData: true,
+      noDataMessage: '검색 결과가 없습니다.',
+      copyMode: 'cell',
+      columns: [
+        {
+          field: 'ACCT_CD',
+          title: '계정코드',
+          width: 50,
+          visible: false
+        },
+        {
+          field: 'ACCT_NM',
+          title: '계정명',
+          width: 100,
+          align: 'left'
+        },
+        {
+          field: 'PJT_NM',
+          title: '프로젝트명',
+          width: 140,
+          align: 'left'
+        },
+        {
+          field: 'CCGRP_NM',
+          title: '비용센터그룹명',
+          width: 90,
+          align: 'left'
+        },
+        {
+          field: 'CC_CD',
+          title: '비용센터코드',
+          width: 65
+        },
+        {
+          field: 'CC_NM',
+          title: '비용센터명',
+          width: 90,
+          align: 'left'
+        },
+        {
+          field: 'PARTNER_NM',
+          title: '거래처명',
+          width: 90,
+          align: 'left'
+        },
+        {
+          field: 'ACTG_DT',
+          title: '회계일',
+          width: 40,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'ACTG_NO',
+          title: '회계번호',
+          width: 50
+        },
+        {
+          field: 'DOCU_AMT',
+          title: '전표금액',
+          width: 60,
+          align: 'right',
+          visible: false,
+          formats: {
+            type: 'number',
+            format: 'MA00003',
+            predefined: true
+          },
+          editor: {
+            type: 'number'
+          }
+        },
+        {
+          field: 'DR_AMT',
+          title: '차변금액',
+          width: 60,
+          align: 'right',
+          formats: {
+            type: 'number',
+            format: 'MA00003',
+            predefined: true
+          },
+          editor: {
+            type: 'number'
+          }
+        },
+        {
+          field: 'CR_AMT',
+          title: '대변금액',
+          width: 60,
+          align: 'right',
+          formats: {
+            type: 'number',
+            format: 'MA00003',
+            predefined: true
+          },
+          editor: {
+            type: 'number'
+          }
+        },
+        {
+          field: 'NOTE_DC',
+          title: '적요',
+          width: 120,
+          align: 'left'
+        },
+        {
+          field: 'COMPANY_CD',
+          title: '회사코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'PC_CD',
+          title: '회계단위코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'DOCU_NO',
+          title: '전표번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'GAAP_CD',
+          title: 'GAAP코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'DRCRFG_CD',
+          title: '차대구분코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'NOTE_DC',
+          title: '적요내역',
+          width: 120,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'PARTNER_CD',
+          title: '거래처코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'PJT_CD',
+          title: '프로젝트코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'CCGRP_CD',
+          title: '증빙코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'START_DT',
+          title: '시작일',
+          width: 80,
+          visible: false,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'END_DT',
+          title: '종료일',
+          width: 80,
+          visible: false,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'FLAG_CD',
+          title: 'FLAG코드',
+          width: 80,
+          visible: false
+        }
+      ],
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      },
+      dataBound: /*c5e244f9-6d60-4808-b80f-da69400e2af1*/ function (e) {
+            dews.ui.loading.hide();
+            e.row.data.forEach(function (item, index, array) {
+                switch (item.FLAG_CD) {
+                    case "1": { // 초록색
+                        self.gridMaster.setRowStyle(index, {
+                            background: '#DBEEEC'
+                        });
+                        break;
+                    }
+                    case "2": { // 회색
+                        self.gridMaster.setRowStyle(index, {
+                            background: '#F0F0F0'
+                        });
+                        break;
+                    }
+                    case "3": { // 노란색
+                        self.gridMaster.setRowStyle(index, {
+                            background: '#FAEBD7'
+                        });
+                        break;
+                    }
+                    case "4": { // 분홍색                    
+                        self.gridMaster.setRowStyle(index, {
+                            background: '#FDDADA'
+                        });
+                        break;
+                    }
+                }
+            });
+        }
+    ,
+      dblClicked: /*3a6a4839-a6a8-470d-92fa-25dd345bc300*/ function (e) {
+            drillDown(e.row.data);
+            function drillDown(initData) {
+                if (initData != null) {
+                    var docuParams = {
+                        actg_dt_from: self.actg_dt.getStartDate(),
+                        actg_dt_to: self.actg_dt.getEndDate(),
+                        docu_no: initData.DOCU_NO
+                    };
+                    dews.ui.openMenu('FI', 'GLDDOC00700', docuParams);
+                }
+            }
+        }
+    
+    });
+    
+    
+    
+    
+    /*3c9557f6-dfd5-47eb-b7af-c9aaa9f91f42*/ function setSearchCode() {
+        dews.api.get(dews.url.getApiUrl("MA", "CommonInformationConfigurationGLMService", "comglm00300_list_detail"), {
+            async: true,
+            data: {
+                mcls_cd: 'D0011'
+            }
+        }).done(function (data) {
+            self.search_cd.setDataSource(data);
+            self.search_cd.select(0);
+        }).fail(function (xhr, status, error) {
+            dews.alert(error, 'warning');
+        })
+    }
+    function setAcoountLevelCode() {
+        var codeDtls = new Object();
+        gerp.FI.getCodeData(codeDtls, "MA", "D00040", "", "", "", "", "", "");
+    
+        if (codeDtls) {
+            var controlValue = gerp.FI.getControlConfig("FI", "FI00070");
+            if (controlValue.FI00070) {
+                codeDtls.MA.D00040 = codeDtls.MA.D00040.filter(function (val) {
+                    if (val.SYSDEF_CD > 1 && val.SYSDEF_CD <= Number(controlValue.FI00070.CTRL_VR) + 1) {
+                        return true;
+                    }
+                });
+                codeDtls.MA.D00040.push({
+                    SYSDEF_NM: dews.localize.get("전표기표계정전체", 'D0011667', '', 'GLDDCM01100')
+                    , SYSDEF_CD: "11"
+                });
+            }
+    
+            self.acctlv_cd.setDataSource(codeDtls.MA.D00040);
+            self.acctlv_cd.select(5);
+        }
+    }
+    function searchData() {
+        try {
+            dews.ui.loading.show({
+                type: "tiny",
+                text: "조회중입니다."
+            });
+            self.gridDatasource.read();
+        } catch (error) {
+            dews.ui.loading.hide();
+            dews.ui.snackbar.error(error);
+        }
+    }
+    
+    //# sourceURL=GLDDCM01111_X20141.js
+    
+    
+
+  
+  });
+
+</script>

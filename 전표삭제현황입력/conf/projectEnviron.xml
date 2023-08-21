@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>https://prd2.comet.duzon.net</url>
+  </server>
+  <serverdbsearch>
+    <url>https://prd2.comet.duzon.net</url>
+  </serverdbsearch>
+  <module>
+    <name>FI</name>
+    <desc>재무회계</desc>
+  </module>
+  <BaseInfo>
+    <UID>6752ae93-88fa-4b1f-b4dc-c4729ae705ee</UID>
+  </BaseInfo>
+  <variables />
+  <outputs />
+</Environment>

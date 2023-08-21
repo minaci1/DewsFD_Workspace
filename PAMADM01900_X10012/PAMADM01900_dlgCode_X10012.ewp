@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="계약상태 도움창" name="PAMADM01900_dlgCode_X10012" type="codehelpdlg">
+  <canvas uid="canvas-1485142915113" type="codehelpdlg" dialogsize="big" title="계약상태 도움창" preReady="7fc97d16-ddd3-48ea-853d-5ee6474250cd" ready="b480bc46-5075-4494-95f6-a1efdef7890b" component="" function="">
+    <pageInformation>
+      <version>1.0</version>
+      <create>hyerin0306</create>
+      <modify>hyerin0306</modify>
+      <builddate>2020-08-10T16:54:47.6428949+09:00</builddate>
+      <createdate>2020-08-10T16:33:20.7412803+09:00</createdate>
+      <modifieddate>2020-08-10T16:56:56.1618498+09:00</modifieddate>
+    </pageInformation>
+    <containerPanel uid="containerPanel-1597044858185" height_type="px" fitBottom="true" containerResize="false">
+      <containerItem uid="containerItem-1597044859188" width_type="px" location="normal">
+        <grid uid="grid-1597044881809" mockupData="" id="grid1" dataSource="cont_st_ds_ct" height_type="px" editable="false" movable="false" rowNo="false" selectable="true" checkable="true" pasteAddRowEvent="false" sortable="true" shiftCheck="false" autoBind="true" requiredCheck="false" stateColumn="false" noData="false" noDataMessage="데이터가 없습니다" fillWidth="true" resizable="true" contextType="Boolean" context="false" contextex="true" skipEdit="false" copyMode="cell" multiFooterCnt="0" multiHeaderSummaryCnt="0" useGridUserGroup="false">
+          <columns>
+            <column uid="f87a3f1e-c306-42b8-a70d-17b54038cb0f" field="SYSDEF_CD" title="코드" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="false" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <codepicker helpCode="H_SD_CSF_CD_C" codeField="SYSDEF_CD" textField="SYSDEF_NM" helpCustom="false" helpTitle="분류" helpSize="medium" useAjax="true" validation="true" editable_type="value">
+                  <mapping />
+                </codepicker>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="35f644f7-098d-42c2-94c3-5d2aa33d4c97" field="SYSDEF_NM" title="계약상태" width="150" align="left" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+          </columns>
+          <filter filterType="Boolean" filter="true" iconVisible="false" />
+          <contextObject excelDownload="true" fixed="true" search="true" excelDownloadExpandAll="true" excelFileNameSuffixDate="false" excelFileNameSuffixDateFormat="" />
+          <detailGrid addedRowDataSourceRead="true" />
+          <gridGroupColumns />
+          <fixed colCount="0" rightColCount="0" />
+          <styles heightTyp="string">
+            <rowNo />
+            <cellBorder />
+            <font bold="false" />
+            <padding />
+            <heightObject />
+          </styles>
+          <note>
+            <keys />
+          </note>
+        </grid>
+      </containerItem>
+    </containerPanel>
+  </canvas>
+  <dataSources>
+    <datasource uid="datasource-a755f1f3b15e4ab0a417749693eeb268" id="cont_st_ds_ct" isTreeGrid="false" grid="true" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_ma_cont_st" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="Grid" isPost="false">
+      <mapping>
+        <param parameter="field_cd" applyType="constant" dataType="string" value="S00070" />
+        <param parameter="module_cd" applyType="constant" dataType="string" value="MA" />
+      </mapping>
+      <columns>
+        <column field="SYSDEF_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="명" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+  </dataSources>
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[]]></pageCssStyle>
+  <stylesheets />
+  <javascripts>
+    <javascript id="7fc97d16-ddd3-48ea-853d-5ee6474250cd"><![CDATA[var thisDlg = dews.ui.dialog(self.$content.prop("id"));]]></javascript>
+    <javascript id="b480bc46-5075-4494-95f6-a1efdef7890b"><![CDATA[thisDlg.buttons.ok.on('click', function (e) {
+  thisDlg.ok(self.grid1.dataItems(self.grid1.getCheckedIndex()));
+});]]></javascript>
+  </javascripts>
+  <settings />
+  <datas />
+</page>

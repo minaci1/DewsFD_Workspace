@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>https://dev.comet.duzon.net</url>
+  </server>
+  <serverdbsearch>
+    <url>https://dev.comet.duzon.net</url>
+  </serverdbsearch>
+  <module>
+    <name>HR</name>
+    <desc>Human Resource Management</desc>
+  </module>
+  <BaseInfo>
+    <UID>8d6b8f0d-e3d3-4b85-bd3f-474369c45798</UID>
+  </BaseInfo>
+  <SourceBank>
+    <code>D000003984</code>
+  </SourceBank>
+  <variables />
+  <outputs />
+</Environment>

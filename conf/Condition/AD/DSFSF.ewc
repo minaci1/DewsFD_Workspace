@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="SDFSD" name="DSFSF" type="searchCondition">
+  <canvas uid="canvas-1485142915100" type="searchCondition" title="SDFSD" component="" function="">
+    <pageInformation>
+      <version>1.0</version>
+      <create>minaci00093</create>
+      <builddate d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+      <createdate>2023-08-03T16:12:09.0391854+09:00</createdate>
+      <modifieddate d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+    </pageInformation>
+    <conditionPanel uid="conditionPanel-1505787946420" margin="false" optional="false" optionalcollapsed="true" columnLength="3" labelAlign="right">
+      <conditionGroup uid="conditionGroup-1505787946424" type="required">
+        <conditionItem uid="conditionItem-c0bd0216069d41f5931ffedcf3d84a9e" columnSize="1" text="부양가족관계코드 코드">
+          <multicodepicker uid="multicodepicker-9964a671d2664d7a9de7abb29b1c9843" id="_CD_SYSDEF" disabled="false" readonly="false" ajax="true" state="basic" helpCode="H_TX_TSM_MA_CODEDTL_RELATION_S" codeField="CD_SYSDEF" textField="NM_SYSDEF" virtualScroll="false" helpCustom="false" helpURLCustom="" helpTitle="부양가족관계코드" helpSize="medium" width_type="px">
+            <mapping />
+          </multicodepicker>
+        </conditionItem>
+      </conditionGroup>
+    </conditionPanel>
+  </canvas>
+  <dataSources />
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[]]></pageCssStyle>
+  <stylesheets />
+  <javascripts />
+  <settings />
+  <datas />
+</page>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>https://dev.comet.duzon.net</url>
+  </server>
+  <serverdbsearch>
+    <url>https://dev.comet.duzon.net</url>
+  </serverdbsearch>
+  <module>
+    <name>AU</name>
+    <desc>Inspection</desc>
+  </module>
+  <BaseInfo>
+    <UID>4f21faed-4b84-4f71-9b22-5328086b8b32</UID>
+  </BaseInfo>
+  <variables />
+  <outputs />
+</Environment>

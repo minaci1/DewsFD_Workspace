@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>http://localhost:8090</url>
+  </server>
+  <serverdbsearch>
+    <url>http://localhost:8090</url>
+  </serverdbsearch>
+  <module>
+    <name>AD</name>
+    <desc>광고</desc>
+  </module>
+  <BaseInfo>
+    <UID>2680b104-45b9-4096-9a4d-ab27af957945</UID>
+  </BaseInfo>
+  <variables />
+  <outputs>
+    <output>
+      <outputPath>C:\Users\sonmina\gerp-front-bootstrap\view\HR\BSEHRM</outputPath>
+      <outputUse>True</outputUse>
+    </output>
+  </outputs>
+</Environment>

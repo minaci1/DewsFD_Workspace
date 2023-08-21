@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="계약현황 첨부파일" name="PAMADM01900_FILE_X10012" type="dialog">
+  <canvas uid="canvas-1485142915113" type="dialog" dialogsize="big" title="계약현황 첨부파일" component="" function="">
+    <pageInformation>
+      <version>1.0</version>
+      <create>hyerin0306</create>
+      <modify>hyerin0306</modify>
+      <builddate>2020-08-04T14:35:44.3206563+09:00</builddate>
+      <createdate>2020-08-03T17:07:47.5100865+09:00</createdate>
+      <modifieddate>2020-08-04T14:36:50.497155+09:00</modifieddate>
+    </pageInformation>
+    <containerPanel uid="containerPanel-1596443139239" height_type="px" containerResize="false">
+      <containerItem uid="containerItem-1596443140251" width_type="px" location="normal">
+        <multifilecomponent uid="multifilecomponent-1596443143942" id="multifilecomponent" dataSource="Fileds" autoBind="true" contentsHeight="7" usePreview="false">
+          <upload use="false">
+            <button />
+          </upload>
+          <download use="true">
+            <button />
+          </download>
+          <deleted>
+            <button visible="false" />
+          </deleted>
+          <token use="true" />
+          <binding fileKey="NEW_FILE_DC" filename="ORGL_FILE_DC" extension="ORGL_FEXTSN_DC" size="FILE_VR" />
+        </multifilecomponent>
+      </containerItem>
+    </containerPanel>
+    <buttonGroup uid="buttonGroup-1485142915200" align="center" bottom="true">
+      <button uid="button-1485142973000" id="cancel" text="닫기" buttonType="normal" useemphasize="false" emphasize="" disabled="false" click="c48716e5-d331-4936-b06a-332e6a181df4" />
+    </buttonGroup>
+  </canvas>
+  <dataSources>
+    <datasource uid="datasource-f7eeb8bd73934acca2cc991c646c7b3d" id="Fileds" isTreeGrid="false" grid="false" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_list_file_info" params_type="javascript" params="34806f42-f763-4324-912d-13b980f39b83" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="6bc290c3-e9f9-4aa6-a548-2cbe91d941e0" DSType="None" isPost="false">
+      <mapping>
+        <param parameter="cont_no" applyType="constant" dataType="string" />
+      </mapping>
+      <columns>
+        <column field="FILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FILE_SQ" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="파일순번" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ORGL_FILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="원본파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ORGL_FEXTSN_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="원본파일확장자내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="NEW_FILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="신규파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FILE_ATCH_TXT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="파일첨부텍스트" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FILE_VR" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="파일문자값" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FILE_DTS" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="파일일시" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ISNEW" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="신규파일여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ISDELETE" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="삭제파일여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="isNewFile" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="isNewFile" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="isDeleteFile" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="isDeleteFile" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+  </dataSources>
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[]]></pageCssStyle>
+  <stylesheets />
+  <javascripts>
+    <javascript id="c48716e5-d331-4936-b06a-332e6a181df4"><![CDATA[function() {
+  self.close();
+}]]></javascript>
+    <javascript id="34806f42-f763-4324-912d-13b980f39b83"><![CDATA[function() {
+  var dialog = dews.ui.dialog(self.$content.attr('id'));
+  var initData = dialog.getInitData();
+  return {
+    cont_no : initData.cont_no
+  }
+}]]></javascript>
+  </javascripts>
+  <settings />
+  <datas />
+</page>

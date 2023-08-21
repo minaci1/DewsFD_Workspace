@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>http://localhost:8090</url>
+  </server>
+  <serverdbsearch>
+    <url>http://localhost:8090</url>
+  </serverdbsearch>
+  <module>
+    <name>MP</name>
+    <desc>마이페이지</desc>
+  </module>
+  <BaseInfo>
+    <UID>26424a24-9962-4599-9846-1aae5fb2a669</UID>
+  </BaseInfo>
+  <variables />
+  <outputs />
+</Environment>

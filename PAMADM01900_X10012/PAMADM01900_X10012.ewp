@@ -1,0 +1,1458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="계약현황(JB)" name="PAMADM01900_X10012" type="page">
+  <canvas uid="canvas-1485142915100" type="page" title="계약현황(JB)" preReady="a8b2d9e6-73e7-4e62-93ba-5f90175ffaca" ready="5903e2b8-03c9-434b-879b-234c77f66ccb" component="" function="">
+    <pageInformation>
+      <version>1.0</version>
+      <create>hyerin0306</create>
+      <modify>hyerin0306</modify>
+      <builddate>2020-08-25T10:33:06.5574092+09:00</builddate>
+      <createdate>2020-07-28T16:10:47.6912527+09:00</createdate>
+      <modifieddate>2020-09-21T14:53:45.2695193+09:00</modifieddate>
+    </pageInformation>
+    <mainButtons uid="mainButtons-1385142915113">
+      <mainButton uid="mainButton-1485142971049" id="information" buttonAttr="disabled" type="information" />
+      <mainButton uid="mainButton-1485142971050" id="localize" buttonAttr="disabled" type="localize" />
+      <mainButton uid="mainButton-1485142971051" id="approval" buttonAttr="normal" type="approval" />
+      <mainButton uid="mainButton-1485142971058" id="etn-approval" buttonAttr="hide" type="etn-approval" />
+      <mainButton uid="mainButton-1485142971052" id="add" buttonAttr="normal" type="add" />
+      <mainButton uid="mainButton-1485142971053" id="search" buttonAttr="normal" type="search" click="a47aa2a3-b707-49d7-a832-20331bcaf70b" />
+      <mainButton uid="mainButton-1485142971054" id="delete" buttonAttr="normal" type="delete" />
+      <mainButton uid="mainButton-1485142971055" id="print" buttonAttr="normal" type="print" />
+      <mainButton uid="mainButton-1485142971056" id="save" buttonAttr="normal" type="save" click="" />
+      <mainButton uid="mainButton-1485142971057" id="configure" buttonAttr="normal" type="configure" />
+    </mainButtons>
+    <conditionPanel uid="conditionPanel-1505787714956" margin="false" optional="false" optionalcollapsed="true" columnLength="3" labelAlign="right">
+      <conditionGroup uid="conditionGroup-1505787714960" type="required">
+        <conditionItem uid="conditionItem-1595920430380" columnSize="1" text="계약구분">
+          <dropdownlist uid="dropdownlist-dedab8c970d3464ab8e3a29165d38547" id="cont_fg_ct" autoBind="true" dataSource="ma_cont_fg" valueField="SYSDEF_CD" textField="SYSDEF_NM" pipeparam="" useDefault="true" defaultValue="" defaultText="" width_type="px" disabled="false" readonly="false" autoOpen="false" useNumkey="false" showTooltip="true" showValueTooltip="true" state="basic" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-1595920443527" columnSize="1" text="계약일자">
+          <periodpicker uid="periodpicker-1595920443673" id="cont_dt_ct" disabled="false" readonly="false" state="basic" startDate_type="value" endDate_type="value" predefined="false" buttons="true" width_type="px" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-1595920627006" columnSize="1" text="계약상태">
+          <multicodepicker uid="multicodepicker-1595920627194" id="cont_st_ct" disabled="false" readonly="false" ajax="false" state="basic" helpCode="custom" codeField="SYSDEF_CD" textField="SYSDEF_NM" virtualScroll="false" helpCustom="true" helpURLCustom="~/view/CX/PAMADM01900_dlgCode_X10012" helpParams_type="mapping" helpParams="" helpTitle="계약상태 도움창" helpSize="" helpHeight="400" helpWidth="300" width_type="px">
+            <mapping />
+          </multicodepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-1595920689356" columnSize="1" text="거래처">
+          <multicodepicker uid="multicodepicker-1595920689498" id="partner_cd_ct" disabled="false" readonly="false" ajax="false" state="basic" helpCode="H_MA_PARTNER_MST_S" codeField="PARTNER_CD" textField="PARTNER_NM" virtualScroll="false" helpCustom="false" helpParams_type="mapping" helpParams="" helpTitle="거래처 도움창" helpSize="big" width_type="px">
+            <mapping>
+              <param parameter="company_cd" applyType="constant" dataType="number" value="self.user.companyCode" />
+              <param parameter="use_yn" applyType="constant" />
+              <param parameter="decrypt_yn" applyType="constant" />
+            </mapping>
+          </multicodepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-1595920696092" columnSize="1" text="검색어">
+          <textbox uid="textbox-1595920696229" id="search_ct" disabled="false" readonly="false" state="basic" predefined="false" useSecureMask="false" multiline="false" width_type="px" height_type="px" rows="0" maxlength="0" password="false" keyDown="9dded617-bcfc-4af3-9655-bc71d25efe3c" />
+        </conditionItem>
+      </conditionGroup>
+    </conditionPanel>
+    <containerPanel uid="containerPanel-1596429522797" height_type="px" containerResize="false">
+      <containerItem uid="containerItem-1596429523537" width_type="px" location="normal">
+        <title uid="title-1596429545733" title="계약현황" type="h2" />
+        <grid uid="grid-1596429548221" mockupData="" id="grid1" dataSource="dataSource_master" height_type="px" height="232" editable="false" movable="false" rowNo="true" selectable="true" checkable="false" pasteAddRowEvent="false" sortable="true" shiftCheck="false" autoBind="false" requiredCheck="false" stateColumn="false" noData="false" noDataMessage="데이터가 없습니다" fillWidth="true" resizable="true" contextType="Boolean" context="false" contextex="true" skipEdit="false" copyMode="cell" multiFooterCnt="0" multiHeaderSummaryCnt="0" useGridUserGroup="false" change="f1860a00-01ab-4d9a-8e87-7c1745c1d702" dataBound="8013f3a5-c226-40ec-9653-743b826c9845" selected="">
+          <columns>
+            <column uid="647c3219-95ee-4b57-a7f8-a493a0879c34" field="COMPANY_CD" title="회사코드" align="center" editSkip="false" sortable="true" filter="true" visible="false" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <codepicker helpCode="H_MA_COMPANY_S01" codeField="COMPANY_CD" textField="COMPANY_NM" helpCustom="false" helpTitle="회사 도움창" helpSize="medium" useAjax="true" validation="true" editable_type="value">
+                  <mapping />
+                </codepicker>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="3b6fb5eb-e9e5-492c-a266-4c6208fa2d64" field="CONT_NO" title="계약번호" width="120" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="40266e05-24a7-4bcb-9427-022de469ab1b" field="ETC_CONT_NO" title="상위계약번호" width="120" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="57c5961f-407d-4b1b-acb5-d1d90739fe8e" field="CONT_NM" title="계약명" width="120" align="left" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="4652de31-6d2a-4f78-8dda-70fd524389c8" field="CONT_DT" title="계약일자" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="27838cb4-88cb-4e5c-b4a7-cb7ab86058b1" field="CONT_ST" title="계약상태" width="60" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="cont_st_ds_ct" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="10b831e7-661e-4820-8217-673bd7623df9" field="DEPT_NM" title="담당부서" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <textbox maxLength="0" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="f9d2ff72-f5e6-4c41-92fc-00a4c41ed00d" field="PARTNER_NM" title="거래처" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <textbox maxLength="0" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="5542ae4f-5f4f-4646-b90e-ea19d70b9a8c" field="CONT_START_DT" title="계약시작일" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="5e8abe23-2ba5-4d49-986a-d367f7adf9e7" field="CONT_END_DT" title="계약종료일" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="0e6a2bbc-9634-4589-b528-f71b2e5c0234" field="TMNN_DT" title="계약해지일" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="9bf8ffd5-d80d-492d-981d-312bf0c319e2" field="TMNN_FG" title="해지사유" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="false" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ma_tmnn_fg" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="dc2247aa-5f90-4afd-acfb-56773eddad11" field="CONT_AMT" title="총계약금액" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="true" format="MA00003" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <numerictextbox predefined="false" currency_type="value" currency="" increaseType="multiple" increaseValue="" round="round" maxLength="" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="a4a17d0b-5966-4b9c-a132-6d52b84d3941" field="VAT_APLY_YN" title="부가세여부" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ynLocalDataSource1" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="43f978d3-8ca1-416c-ad15-5b84e9d4e76c" field="CONT_FG" title="계약구분" width="60" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ma_cont_fg" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="11efb91d-9457-4093-bff0-f1d97aaef330" field="LS_FG" title="임대차구분" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ma_ls_fg" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="5be9a276-af36-43d3-8210-d309bc288551" field="LEASE_CAL_TRGT_YN" title="리스회계대상" width="90" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ynLocalDataSource1" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="74c510cd-9625-4f87-976e-48b710c13db1" field="LS_GRNTE_AMT" title="임대차보증료" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="true" format="MA00003" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <numerictextbox predefined="false" currency_type="value" currency="" increaseType="multiple" increaseValue="" round="round" maxLength="" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="a8c51128-4313-4094-b3d4-9326fd9b1974" field="LEASE_AMT" title="고정리스료" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="true" format="MA00003" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <numerictextbox predefined="false" currency_type="value" currency="" increaseType="multiple" increaseValue="" round="round" maxLength="" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="19eb64a3-52b2-446e-9847-9f1bdd44e331" field="PUBLIC_SAREA" title="공용면적(m²)" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="false" format="#,##0.##" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="2ab6cb5a-96be-4560-9e4d-2e2404c3a6fb" field="EXCL_SAREA" title="전용면적(m²)" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="false" format="#,##0.##" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="88190da6-585f-49f1-88aa-f4f8903a04bd" field="FULL_SAREA" title="총면적(m²)" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="false" format="#,##0.##" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="17189df8-c7d5-45b9-a46b-0ccc4ebe7b26" field="OTLN_DC" title="계약개요" width="120" align="left" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="8a837440-5a32-4ac6-85f9-4173bbe4baff" field="ATCHFILE_DC" title="첨부파일" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <button buttonWidth="14" buttonHeight="14" buttonTextType="Boolean" buttonText="false" basicImg="data:image/png;base64, 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" hoverImg="data:image/png;base64, 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" clickImg="data:image/png;base64, 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" align="center" editable_type="value" click="6e58ccf0-79f5-458c-9ed7-64094e220c52">
+                  <buttonTextObject />
+                </button>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="502c1bbd-3c33-4345-accf-ce6a5e25e784" field="_uid" title="_uid" width="60" align="center" editSkip="false" sortable="true" filter="true" visible="false" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+          </columns>
+          <filter filterType="Boolean" filter="true" iconVisible="false" />
+          <contextObject excelDownload="true" fixed="true" search="true" excelDownloadExpandAll="true" excelFileNameSuffixDate="false" excelFileNameSuffixDateFormat="" />
+          <detailGrid addedRowDataSourceRead="true" />
+          <gridGroupColumns />
+          <fixed colCount="2" rightColCount="0" />
+          <styles heightTyp="string">
+            <rowNo />
+            <cellBorder />
+            <font bold="false" />
+            <padding />
+            <heightObject />
+          </styles>
+          <note>
+            <keys />
+          </note>
+        </grid>
+      </containerItem>
+    </containerPanel>
+    <containerPanel uid="containerPanel-1596429541553" height_type="px" fitBottom="true" containerResize="false">
+      <containerItem uid="containerItem-1596429542747" width_type="px" location="normal">
+        <title uid="title-1596429553930" title="변경이력" type="h2" />
+        <grid uid="grid-1596429555462" mockupData="" id="grid2" dataSource="dataSource_detail" height_type="px" editable="false" movable="false" rowNo="true" selectable="true" checkable="false" pasteAddRowEvent="false" sortable="true" shiftCheck="false" autoBind="false" requiredCheck="false" stateColumn="false" masterGrid="grid1" noData="false" noDataMessage="데이터가 없습니다" fillWidth="true" resizable="true" contextType="Boolean" context="false" contextex="true" skipEdit="false" copyMode="cell" multiFooterCnt="0" multiHeaderSummaryCnt="0" useGridUserGroup="false">
+          <columns>
+            <column uid="d307455b-bc0a-408b-a869-9f5026a1bed1" field="COMPANY_CD" title="회사코드" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="false" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <codepicker helpCode="H_MA_COMPANY_S01" codeField="COMPANY_CD" textField="COMPANY_NM" helpCustom="false" helpTitle="회사 도움창" helpSize="medium" useAjax="true" validation="true" editable_type="value">
+                  <mapping />
+                </codepicker>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="88cf815c-9d24-4434-94ef-3a6d940db8d7" field="SEQ_NO" title="일련번호" width="60" align="center" editSkip="false" sortable="true" filter="true" visible="false" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="07c16777-33b7-48d5-87dc-42e8fa93b40d" field="USER_NM" title="확정자" width="60" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="5ccc8e82-1c87-4dea-b3f7-da135d9e8c19" field="INSERT_DTS" title="확정일시" width="130" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="23f590a0-0ab0-4d0d-81ce-7d56586b958c" field="CONT_NO" title="계약번호" width="120" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="c3dfedbb-d9b1-4736-8fbc-4356ecfec731" field="ETC_CONT_NO" title="상위계약번호" width="120" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="e2967c27-a160-4b1e-b180-83ce6119e7b2" field="CONT_NM" title="계약명" width="120" align="left" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="b48dcdce-61d8-40df-9104-3a8e55d2a41d" field="CONT_DT" title="계약일자" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="8bad0b74-1f9b-4073-b1e0-62f1e1acfa19" field="CONT_ST" title="계약상태" width="60" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="cont_st_ds_ct" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="a4a3f846-85e2-4013-a512-cf5181944587" field="DEPT_NM" title="담당부서" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <textbox maxLength="0" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="8ab170df-0cb1-4ab1-abb2-6ff347f9b54e" field="PARTNER_NM" title="거래처" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <textbox maxLength="0" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="bdb178f6-f098-4982-8919-2a37a92df995" field="CONT_START_DT" title="계약시작일" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="2f0c72e8-9b7a-4711-8a48-21127bc2c1e2" field="CONT_END_DT" title="계약종료일" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="3c5f1a78-5f0b-4a8f-9f9a-8df824ff8b54" field="TMNN_DT" title="계약해지일" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <date predefined="false" format="yyyy-MM-dd" />
+              </formats>
+              <editor>
+                <datepicker predefined="false" format="yyyy-MM-dd" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="854afe07-6615-49e2-a66f-58a1e4ae1028" field="TMNN_FG" title="해지사유" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="false" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ma_tmnn_fg" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="fdaccb22-e9a2-4ff4-894f-4f1726462925" field="CONT_AMT" title="총계약금액" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="true" format="MA00003" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <numerictextbox predefined="false" currency_type="value" currency="" increaseType="multiple" increaseValue="" round="round" maxLength="" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="575be53a-b0b4-421c-b444-511c2b31fb05" field="VAT_APLY_YN" title="부가세여부" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ynLocalDataSource1" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="af8be46e-a917-4a28-bb3b-14c787bfe380" field="CONT_FG" title="계약구분" width="60" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ma_cont_fg" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="0e5a30e1-c24c-42b7-8218-2f94260b19c3" field="LS_FG" title="임대차구분" width="80" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ma_ls_fg" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="bca6266b-f224-4d76-a4b5-543d29f59960" field="LEASE_CAL_TRGT_YN" title="리스회계대상" width="85" align="center" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <dropdownlist dataSource_type="value" dataSource="ynLocalDataSource1" dataValueField="SYSDEF_CD" dataTextField="SYSDEF_NM" autoOpen="false" editable_type="value" useDefault="false" defaultValue="" defaultText="">
+                  <dataSelectable />
+                </dropdownlist>
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="b9a1cc45-b43e-4cf5-bbc0-0e006a40fac3" field="LS_GRNTE_AMT" title="임대차보증료" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="true" format="MA00003" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <numerictextbox predefined="false" currency_type="value" currency="" increaseType="multiple" increaseValue="" round="round" maxLength="" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="a09db302-5c4c-4d22-aad9-e916517fa68a" field="LEASE_AMT" title="고정리스료" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="true" format="MA00003" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <numerictextbox predefined="false" currency_type="value" currency="" increaseType="multiple" increaseValue="" round="round" maxLength="" editable_type="value" />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="d76761c6-eab7-40de-b71c-4c10b4f69f04" field="PUBLIC_SAREA" title="공용면적(m²)" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="false" format="#,##0.##" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="35bfbef3-7541-4239-a4fa-19480e9d319c" field="EXCL_SAREA" title="전용면적(m²)" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="false" format="#,##0.##" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="6dda9dc0-af5e-45e2-9a58-fb92bb743aaf" field="FULL_SAREA" title="총면적(m²)" width="100" align="right" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <number predefined="false" format="#,##0.##" currency_type="value" negativeColor="false" currency="" />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="32d61adc-260d-4dea-a908-e1b35dfb2a17" field="OTLN_DC" title="계약개요" width="120" align="left" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <DesignerControl />
+              </editor>
+              <customExport check="" />
+            </column>
+            <column uid="8b6b2d67-8484-4962-a298-71cc82a15c38" field="ATCHFILE_DC" title="첨부파일" width="100" align="left" editSkip="false" sortable="true" filter="true" visible="true" hideChildHeaders="false" mergeType="Boolean" merge="false" mergeString="" editingMergedRow="false" grouping="false" groupable="true" movable="true" showTooltip="false" attributes="none" footerType="object" headerType="object">
+              <mergeObject innerFocus="true" verticalTop="false" referenceFieldType="String" referenceField="">
+                <referenceFieldArray />
+              </mergeObject>
+              <headerCheck used="false" location="right" />
+              <footer predefined="false" currency_type="value" currency="" align="center">
+                <group predefined="false" />
+              </footer>
+              <footerCollection />
+              <headerSummary predefined="false" currency_type="value" currency="" align="center" />
+              <headerSummaryCollection />
+              <formats>
+                <DesignerControl />
+              </formats>
+              <editor>
+                <button buttonWidth="25" buttonHeight="25" buttonTextType="Boolean" buttonText="false" basicImg="data:image/png;base64, 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" hoverImg="data:image/png;base64, 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" clickImg="data:image/png;base64, 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" align="center" editable_type="value" click="1bc60bd4-4ec7-4d6e-9738-cda131f87cff">
+                  <buttonTextObject />
+                </button>
+              </editor>
+              <customExport check="" />
+            </column>
+          </columns>
+          <filter filterType="Boolean" filter="true" iconVisible="false" />
+          <contextObject excelDownload="true" fixed="true" search="true" excelDownloadExpandAll="true" excelFileNameSuffixDate="false" excelFileNameSuffixDateFormat="" />
+          <detailGrid addedRowDataSourceRead="true" />
+          <gridGroupColumns />
+          <fixed colCount="4" rightColCount="0" />
+          <styles heightTyp="string">
+            <rowNo />
+            <cellBorder />
+            <font bold="false" />
+            <padding />
+            <heightObject />
+          </styles>
+          <note>
+            <keys />
+          </note>
+        </grid>
+      </containerItem>
+    </containerPanel>
+  </canvas>
+  <dataSources>
+    <datasource uid="datasource-0585f2089ad74018a9934f9baf30b22c" id="ynLocalDataSource1" isTreeGrid="false" grid="false" aggregate="false" group="false" userGroup="false" type="localdata" module="" service="" urlpattern="" params_type="none" params="" preview_type="none" preview="" localdata="f32f07af-2f39-42c5-9074-e3097ed74807" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="None" isPost="false">
+      <mapping />
+      <columns>
+        <column field="SYSDEF_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="네임" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+    <datasource uid="datasource-44a61739e37f4ddb84bd771daf0077b1" id="dataSource_master" isTreeGrid="false" grid="true" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_select_master" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="Grid" isPost="false">
+      <mapping>
+        <param parameter="cont_dt_e" applyType="control" dataType="cont_dt_ct" value="endDate" />
+        <param parameter="cont_dt_s" applyType="control" dataType="cont_dt_ct" value="startDate" />
+        <param parameter="partner_cd" applyType="control" dataType="partner_cd_ct" value="codes" />
+        <param parameter="cont_st" applyType="control" dataType="cont_st_ct" value="codes" />
+        <param parameter="cont_fg" applyType="control" dataType="cont_fg_ct" value="value" />
+        <param parameter="cont_nm" applyType="control" dataType="search_ct" value="text" />
+      </mapping>
+      <columns>
+        <column field="COMPANY_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="회사코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ETC_CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="기타계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_ST" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약상태" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_START_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약시작일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_END_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약종료일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="계약금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="VAT_APLY_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부가세적용여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="임대차구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_CAL_TRGT_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="리스계산대상여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_GRNTE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="임대차보증금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="리스금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PUBLIC_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="공용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="EXCL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FULL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전체면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="OTLN_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="개요내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ATCHFILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="첨부파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="_uid" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="_uid" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지사유" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+    <datasource uid="datasource-6342e37200f94faab9b03b5bf392481f" id="dataSource_detail" isTreeGrid="false" grid="true" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_select_detail" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="Grid" isPost="false">
+      <mapping>
+        <param parameter="cont_no" applyType="constant" dataType="number" value="cont_no" />
+      </mapping>
+      <columns>
+        <column field="COMPANY_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="회사코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SEQ_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="일련번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ETC_CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="기타계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_ST" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약상태" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_START_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약시작일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_END_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약종료일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="계약금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="VAT_APLY_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부가세적용여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="임대차구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_CAL_TRGT_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="리스계산대상여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_GRNTE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="임대차보증금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="리스금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PUBLIC_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="공용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="EXCL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FULL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전체면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="OTLN_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="개요내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ATCHFILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="첨부파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="KOR_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="한글명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="INSERT_DTS" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="등록일시" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지사유" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="USER_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="사용자명" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+    <datasource uid="datasource-5c656ef68bf44457b6dfaefa7c3fd807" id="ma_tmnn_fg" isTreeGrid="false" grid="false" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_ma_codedtl_search" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="None" isPost="false">
+      <mapping>
+        <param parameter="field_cd" applyType="constant" dataType="string" value="Z021_10012" />
+        <param parameter="module_cd" applyType="constant" dataType="string" value="HR" />
+      </mapping>
+      <columns>
+        <column field="COMPANY_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="회사코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ETC_CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="기타계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_ST" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약상태" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_START_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약시작일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_END_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약종료일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="계약금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="VAT_APLY_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부가세적용여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="임대차구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_CAL_TRGT_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="리스계산대상여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_GRNTE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="임대차보증금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="리스금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PUBLIC_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="공용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="EXCL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FULL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전체면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="OTLN_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="개요내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ATCHFILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="첨부파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="_uid" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="_uid" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="사업자명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="명" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+    <datasource uid="datasource-5c656ef68bf44457b6dfaefa7c3fd807" id="ma_cont_fg" isTreeGrid="false" grid="false" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_ma_codedtl_search" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="None" isPost="false">
+      <mapping>
+        <param parameter="field_cd" applyType="constant" dataType="string" value="Z022_10012" />
+        <param parameter="module_cd" applyType="constant" dataType="string" value="HR" />
+      </mapping>
+      <columns>
+        <column field="COMPANY_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="회사코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ETC_CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="기타계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_ST" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약상태" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_START_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약시작일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_END_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약종료일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="계약금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="VAT_APLY_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부가세적용여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="임대차구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_CAL_TRGT_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="리스계산대상여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_GRNTE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="임대차보증금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="리스금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PUBLIC_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="공용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="EXCL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FULL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전체면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="OTLN_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="개요내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ATCHFILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="첨부파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="_uid" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="_uid" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="사업자명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="명" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+    <datasource uid="datasource-5c656ef68bf44457b6dfaefa7c3fd807" id="ma_ls_fg" isTreeGrid="false" grid="false" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_ma_codedtl_search" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="None" isPost="false">
+      <mapping>
+        <param parameter="field_cd" applyType="constant" dataType="string" value="Z020_10012" />
+        <param parameter="module_cd" applyType="constant" dataType="string" value="HR" />
+      </mapping>
+      <columns>
+        <column field="COMPANY_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="회사코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ETC_CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="기타계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_ST" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약상태" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_START_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약시작일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_END_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약종료일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="계약금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="VAT_APLY_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부가세적용여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="임대차구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_CAL_TRGT_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="리스계산대상여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_GRNTE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="임대차보증금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="리스금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PUBLIC_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="공용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="EXCL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FULL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전체면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="OTLN_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="개요내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ATCHFILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="첨부파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="_uid" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="_uid" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="사업자명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="명" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+    <datasource uid="datasource-a755f1f3b15e4ab0a417749693eeb268" id="cont_st_ds_ct" isTreeGrid="false" grid="false" aggregate="false" group="false" userGroup="false" type="dataservice" module="HR" service="PamadmServiceX10012" urlpattern="pamadm01900_ma_cont_st" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="None" isPost="false">
+      <mapping>
+        <param parameter="field_cd" applyType="constant" dataType="string" value="S00070" />
+        <param parameter="module_cd" applyType="constant" dataType="string" value="MA" />
+      </mapping>
+      <columns>
+        <column field="COMPANY_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="회사코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ETC_CONT_NO" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="기타계약번호" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_ST" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약상태" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="거래처코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_START_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약시작일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_END_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약종료일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="TMNN_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="해지일" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="계약금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="VAT_APLY_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부가세적용여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="CONT_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="계약구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_FG" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="임대차구분" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_CAL_TRGT_YN" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="리스계산대상여부" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LS_GRNTE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="임대차보증금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="LEASE_AMT" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="리스금액" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PUBLIC_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="공용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="EXCL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전용면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FULL_SAREA" unionfield="" dataType="number" editable="false" useType="true" isID="false" isChildren="false" description="전체면적" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="OTLN_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="개요내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="ATCHFILE_DC" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="첨부파일내역" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="_uid" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="_uid" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="PARTNER_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="사업자명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="명" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+  </dataSources>
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[]]></pageCssStyle>
+  <stylesheets />
+  <javascripts>
+    <javascript id="5903e2b8-03c9-434b-879b-234c77f66ccb"><![CDATA[
+self.dataSource_master.read();]]></javascript>
+    <javascript id="f1860a00-01ab-4d9a-8e87-7c1745c1d702"><![CDATA[function(e) {
+  cont_no=self.grid1.getCellValue(e.grid.select(), 'CONT_NO');
+}]]></javascript>
+    <javascript id="a8b2d9e6-73e7-4e62-93ba-5f90175ffaca"><![CDATA[var cont_no='';
+
+self.cont_dt_ct.setEarlyYears();
+
+dews.ui.loading.show({
+    text: "조회중입니다."
+  });
+]]></javascript>
+    <javascript id="a47aa2a3-b707-49d7-a832-20331bcaf70b"><![CDATA[function() {
+  dews.ui.loading.show({
+    text: "조회중입니다."
+  });
+  self.dataSource_master.read();
+}]]></javascript>
+    <javascript id="6e58ccf0-79f5-458c-9ed7-64094e220c52"><![CDATA[function(e) {
+       var cont_no = self.grid1.getCellValue(e.grid.select(), 'CONT_NO');
+    
+       initData = {
+          cont_no:cont_no
+       };
+       
+      var dialog = dews.ui.dialog("PAMADM01900_FILE_X10012",{
+        url:"/view/CX/PAMADM01900_FILE_X10012",
+        title: dews.localize.get("계약현황 첨부파일 조회"),
+        width: 760,
+        height: 300, 
+        initData: initData,
+        ok: function(data){
+          dews.ui.loading.show({
+            text: "재조회중입니다."
+          });
+          self.dataSource_master.read();
+        }
+      });
+      dialog.open();
+    }]]></javascript>
+    <javascript id="8013f3a5-c226-40ec-9653-743b826c9845"><![CDATA[function() {
+  dews.ui.loading.hide();
+}]]></javascript>
+    <javascript id="9dded617-bcfc-4af3-9655-bc71d25efe3c"><![CDATA[function(e)  {
+            if (event.keyCode == 13) {
+
+              var searchText = dews.ui.textbox(self.$search_ct).text();
+
+              if (searchText) {
+    
+                if(self.grid1.focused){
+                var options = {
+                  fields: ['CONT_NO','CONT_NM'],
+                  value: self.search_ct.text(),
+                  startIndex: self.grid1.select() + 1
+                };
+                self.grid1.searchCell(options);
+                }
+
+              } else if(searchText == ""){
+                self.grid1.select(0);
+              }
+        
+              setTimeout(function () {
+                dews.ui.textbox(self.$search_ct).focus();
+              }, 100);
+      
+              e.preventDefault();
+            }
+          }]]></javascript>
+    <javascript id="1bc60bd4-4ec7-4d6e-9738-cda131f87cff"><![CDATA[function(e) {
+       var cont_no_hst = self.grid1.getCellValue(self.grid1.select(), 'CONT_NO')+self.grid2.getCellValue(self.grid2.select(), 'SEQ_NO');
+    
+       initData = {
+          cont_no:cont_no_hst
+       };
+       
+      var dialog = dews.ui.dialog("PAMADM01900_FILE_X10012",{
+        url:"/view/CX/PAMADM01900_FILE_X10012",
+        title: dews.localize.get("계약현황 첨부파일 조회"),
+        width: 760,
+        height: 300, 
+        initData: initData,
+        ok: function(data){
+          dews.ui.loading.show({
+            text: "재조회중입니다."
+          });
+          self.dataSource_master.read();
+        }
+      });
+      dialog.open();
+    }]]></javascript>
+  </javascripts>
+  <settings />
+  <datas>
+    <data id="f32f07af-2f39-42c5-9074-e3097ed74807" type="local"><![CDATA[[{"SYSDEF_CD": "1","SYSDEF_NM": "Yes"},{"SYSDEF_CD": "2","SYSDEF_NM": "No"}]]]></data>
+  </datas>
+</page>

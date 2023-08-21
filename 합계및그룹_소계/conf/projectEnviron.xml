@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>http://localhost:8090</url>
+  </server>
+  <serverdbsearch>
+    <url>http://localhost:8090</url>
+  </serverdbsearch>
+  <module>
+    <name>PU</name>
+    <desc>구매관리</desc>
+  </module>
+  <BaseInfo>
+    <UID>31e78dcb-3ce2-4751-817d-bc1e56f20a20</UID>
+  </BaseInfo>
+  <variables />
+  <outputs />
+</Environment>

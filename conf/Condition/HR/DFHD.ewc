@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="GFHFGH" name="DFHD" type="searchCondition">
+  <canvas uid="canvas-1485142915100" type="searchCondition" title="GFHFGH" component="" function="">
+    <conditionPanel uid="conditionPanel-1505787946420" margin="false" optional="false" optionalcollapsed="true" columnLength="3" labelAlign="right">
+      <conditionGroup uid="conditionGroup-1505787946424" type="required" />
+    </conditionPanel>
+  </canvas>
+  <dataSources />
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[]]></pageCssStyle>
+  <stylesheets />
+  <javascripts />
+  <settings />
+  <datas />
+  <summaries>
+    <summaryType>Process</summaryType>
+  </summaries>
+  <summaryhistory />
+</page>

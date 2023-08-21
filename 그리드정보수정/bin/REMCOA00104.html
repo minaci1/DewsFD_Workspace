@@ -1,0 +1,237 @@
+<!--##e4c7135d-c065-4192-8323-d79f09f149a5##-->
+<!--##REMCOA00104##-->
+<!--##91tXnWE2aZiUTmartlZZ+VZLMHYDPivjErxtoxbPnDA=##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: REMCOA00104
+  # PageTitle: 그리드정보수정
+  # Server: http://localhost:8090/
+-->
+<!--
+
+-->
+
+<div id="conditionpanel1" class="dews-ui-condition-panel">
+  <ul class="required-area">
+    <li>
+      <label class="dews-ui-multilingual required">부서</label>
+      <span>
+        <input type="text" id="dept_cd" name="dept_cd" class="dews-ui-codepicker required" data-dews-help-code="H_MA_DEPT_MST_S" data-dews-code-field="DEPT_CD" data-dews-text-field="DEPT_NM" data-dews-help-title="부서 도움창" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-ajax="true" />
+      </span>
+    </li>
+  </ul>
+</div>
+<div id="containerpanel1" class="dews-ui-container-panel" data-dews-fit-bottom="true">
+  <div id="containerpanelitem2" class="dews-container-item" data-dews-position="left" data-dews-width="300px">
+    <div id="grid1" class="dews-ui-grid"></div>
+  </div>
+  <div id="containerpanelitem3" class="dews-container-item" data-dews-position="normal">
+    <div id="formpanel1" class="dews-ui-form-panel">
+      <ul>
+        <li>
+          <label>부서코드</label>
+          <span>
+            <input id="txt1" name="txt1" type="text" data-dews-bind-column="DEPT_CD" class="dews-ui-textbox basic" readonly="readonly" />
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <label>사원번호</label>
+          <span>
+            <input id="EMP_NO" name="EMP_NO" type="text" class="dews-ui-textbox required" />
+          </span>
+        </li>
+        <li>
+          <label>사원명</label>
+          <span>
+            <input id="txt3" name="txt3" type="text" data-dews-bind-column="KOR_NM" class="dews-ui-textbox basic" />
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0';
+
+
+    /*91552819-03b3-4de7-bde2-e9ec99639c05*/ self.dept_cd.setData({
+        DEPT_CD: '889889',
+        DEPT_NM: '선거팀'
+    })
+    
+    
+    
+    self.ds1 = dews.ui.dataSource('ds1', {
+      grid: true,
+      transport: {
+        read: {
+          url: dews.url.getApiUrl('HR', 'DepEmpService', 'empreg_list'),
+          data: function () {
+            return {
+              dept_cd: self.dept_cd.code()
+            };
+          }
+        }
+      },
+      schema: {
+        model: {
+          fields: [
+            { field: 'COMPANY_CD', editable: false, dataType: 'string' }, 
+            { field: 'EMP_NO', editable: false, dataType: 'string' }, 
+            { field: 'KOR_NM', editable: false, dataType: 'string' }, 
+            { field: 'DEPT_CD', editable: false, dataType: 'string' }
+          ]
+    
+        }
+      }
+    });
+    
+    
+    dews.ui.mainbuttons.localize.disable(true);
+    dews.ui.mainbuttons.add.click(/*f31650c5-92d8-4384-86fd-557e908609c9*/ function () {
+        // TODO: 그리드에 데이터를 추가합니다.
+        self.grid1.addRow();
+        self.grid1.setCellValue(self.grid1.select(), "DEPT_CD", self.dept_cd.code());
+        self.grid1.formpanel1.bindPanel
+    });
+    dews.ui.mainbuttons.search.click(/*22e55842-888d-484e-83bf-4fdbfc35a32b*/ function () { //조회 + 저장
+    
+        // TODO: 필수항목 입력을 체크한 후 데이터소스를 조회합니다.
+        if (self.conditionpanel1.validate({ tooltip: true, message: '필수 항목을 입력해 주십시요.' })) { // 필수값이 없을 경우 
+            // TODO: 저장여부를 확인한 후 데이터소스를 조회합니다.
+            if (self.ds1.getDirtyDataCount() != 0) {
+                dews.confirm('저장하지 않은 데이터가 있습니다. 조회를 계속하시겠습니까?', 'ico2').yes(function () {
+                    self.ds1.read();
+                }).no(function () {
+                    dews.ui.snackbar.warning('취소되었습니다.');
+                    return false;
+                });
+            } else {
+                self.ds1.read();
+            }
+        }
+    
+    
+    });
+    dews.ui.mainbuttons.delete.click(/*1a02e9a8-1fac-4abd-bfc4-286f3e666d71*/ function () {
+        // TODO: 삭제시 강제 팝업에 대한 알림창을 끕니다.
+        // self.mainButtons.delete.useDefaultConfirm = false;
+    
+        // TODO: 그리드에서 체크된 항목을 삭제합니다.
+        // if (self.grid1.getCheckedIndex().length == 0) {
+        //   dews.alert('선택된 데이터가 없습니다.', 'warning');
+        //   return false;
+        // }
+        // self.grid1.removeRow(self.grid1.getCheckedIndex());
+    
+        // TODO: 그리드에 선택된 항목을 삭제합니다.
+        self.grid1.removeRow(self.grid1.select());
+    });
+    dews.ui.mainbuttons.save.click(/*2abc16c4-38bb-4f82-8ee1-be8f7be244e6*/ function () {
+        // TODO: 데이터소스를 저장합니다.
+        if (self.ds1.getDirtyDataCount() == 0) { // getDirtyDataCount 변경된 값을 다 가져옴
+            dews.alert('변경된 데이터가 없습니다.');
+            return false;
+        }
+    
+        if (self.grid1.validate().result == false) {
+            dews.alert('필수 값이 입력되지 않은 항목이 있습니다.');
+            return false;
+        }
+    
+        //showTooltip : 첫 번째 미입력 필수 입력 셀로 이동하여 필수 입력 툴팀을 띄울지 여부 설정
+        if (!self.grid1.validate({ showTooltip: true }).result) {
+            return;
+        }
+    
+    
+        // 서비스 파라미터명과 데이터소스명이 다른경우
+        dews.confirm('수정된 데이터를 저장하시겠습니까 ? ', 'question').yes(function () {
+            dews.api.post(dews.url.getApiUrl('HR', 'DepEmpService', 'empinfo_save'), { //response로 promise 객체 반환
+                async: false,
+                data: {
+                    //ServiceParameterName : ServiceParameterValue
+                    dataSource: JSON.stringify(self.ds1.getDirtyData())
+                }
+            }).done(function (data) {
+                dews.ui.snackbar.ok('자료가 정상적으로 저장되었습니다.');
+                self.ds1.read();
+            }).fail(function (xhr, status, error) {
+                //dews.error('저장이 실패하였습니다.', 'ico1');
+                dews.ui.snackbar.error(error);
+            });
+        });
+    
+    });
+    dews.ui.grid(self.$grid1, {
+      dataSource: self.ds1,
+      sortable: false,
+      checkable: false,
+      copyMode: 'cell',
+      columns: [
+        {
+          field: 'COMPANY_CD',
+          title: '회사코드',
+          width: 80,
+          visible: false,
+          attributes: { class: 'required' }
+        },
+        {
+          field: 'EMP_NO',
+          title: '사원번호',
+          width: 60,
+          attributes: { class: 'required' }
+        },
+        {
+          field: 'KOR_NM',
+          title: '사원명',
+          width: 90,
+          align: 'left'
+        },
+        {
+          field: 'DEPT_CD',
+          title: '부서코드',
+          width: 80,
+          visible: false
+        }
+      ],
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      },
+      change: /*ee8ede73-f3b0-46d1-9845-030338867620*/ function (e) { //폼패널과 연결하는 스크립트 작성 =>bindPanel // 왜 썻는지 확인
+    
+            if (self.grid1.dataItems().length == (0)) {
+                self.txt1.text("");
+                self.EMP_NO.text("");
+                self.txt3.text("");
+            }
+            self.grid1.bindPanel(self.formpanel1);
+        }
+    
+    });
+    self.formpanel1.on('change', /*f46037f6-864e-4f76-94c8-b98b0aa016fa*/ function (e) { //bindTo 폼패널 데이터 변경되면 바뀌게 
+        self.formpanel1.bindTo(self.grid1)
+    });
+    
+    
+    
+    
+    
+
+  
+  });
+
+</script>

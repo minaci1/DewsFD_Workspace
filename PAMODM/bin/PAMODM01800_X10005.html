@@ -1,6 +1,6 @@
-<!--##34ad580b-40d6-4de1-a71f-c2a91bc162ad##-->
+<!--##db7a0ecd-efcb-47a4-b212-0dfbf0323194##-->
 <!--##PAMODM01800_X10005##-->
-<!--##BhdB0SwLzXmfNS5jho87PoqGLc0baUE0x6psT6Ujgshu9WtWTPRjqTKXM2geBwxm##-->
+<!--##eHX7rX3gq6hN05/Xy0VxuMH9J9Br7jGYX5zabt5dp+BaFE89mM0qUE0RLms2XqGX##-->
 <!--
   DEWS UI/UX IDE - Build Result - v1.5
   # PageID: PAMODM01800_X10005
@@ -60,6 +60,12 @@
     self.version.view='1.0';
 
 
+    /*05bbf720-1526-4bd8-9a34-24eb2287d2c7*/ 
+    // 메인버튼 삭제 버튼의 기본 확인 메시지 사용 여부 설정
+    self.mainButtons.delete.useDefaultConfirm = false;
+    
+    
+    
     
     
     self.ds1 = dews.ui.dataSource('ds1', {
@@ -142,47 +148,59 @@
     
     });
     dews.ui.mainbuttons.search.click(/*49885ca7-987e-4ab1-96a6-b07c9b79e207*/ function () {
-        // TODO: 필수항목 입력을 체크한 후 데이터소스를 조회합니다.
-        // if (self.containerpanel1.validate({ tooltip: true, message: '필수 항목을 입력해 주십시요.' })) {
+        //TODO: 필수항목 입력을 체크한 후 데이터소스를 조회합니다.
+        if (self.containerpanel1.validate({ tooltip: true, message: '필수 항목을 입력해 주십시요.' })) {
     
-        // }
+        }
         self.ds1.read();
-        // TODO: 저장여부를 확인한 후 데이터소스를 조회합니다.
-        // if (self.ds1.getDirtyDataCount() != 0) {
-        //   dews.confirm('저장하지 않은 데이터가 있습니다. 조회를 계속하시겠습니까?', 'ico2').yes(function () {
-        //     self.ds1.read();
-        //   }).no(function () {
-        //     dews.ui.snackbar.warning('취소되었습니다.');
-        //     return false;
-        //   });
-        // } else {
-        //   self.ds1.read();
-        // }
+        //TODO: 저장여부를 확인한 후 데이터소스를 조회합니다.
+        if (self.ds1.getDirtyDataCount() != 0) {
+            dews.confirm('저장하지 않은 데이터가 있습니다. 조회를 계속하시겠습니까?', 'ico2').yes(function () {
+                self.ds1.read();
+            }).no(function () {
+                dews.ui.snackbar.warning('취소되었습니다.');
+                return false;
+            });
+        } else {
+            self.ds1.read();
+        }
     });
     dews.ui.mainbuttons.delete.click(/*80261aa0-d178-411d-b70d-e6b98ca89bc5*/ function () {
         // TODO: 삭제시 강제 팝업에 대한 알림창을 끕니다.
-        // self.mainButtons.delete.useDefaultConfirm = false;
+        // self.mainButtons.delete.useDefaultConfirm = false; (preReady 단에 넣어 주었음)
+        try {
+            // 체크된 행 인덱스를 가진 배열
+            console.log("여기오냐?");
+            var checkArray = self.grid1.getCheckedIndex();
     
-        // TODO: 그리드에서 체크된 항목을 삭제합니다.
-        // if (self.grid1.getCheckedIndex().length == 0) {
-        //   dews.alert('선택된 데이터가 없습니다.', 'warning');
-        //   return false;
-        // }
-        // self.grid1.removeRow(self.grid1.getCheckedIndex());
-    
-        // TODO: 그리드에 선택된 항목을 삭제합니다.
-        self.grid1.removeRow(self.grid1.select());
+            if (checkArray.length == 0) { // 체크된 행이 없다면
+                dews.ui.snackbar.warning("체크된 행이 없습니다."); // 스낵바 경고 띄우기
+                return;
+            }
+            //삭제에 대한 confirm icon : ico2
+            dews.confirm("삭제하시겠습니까?", "ico2")
+                .yes(function () {
+                    // 단일행
+                    // self.grid1.removeRow(self.grid1.select());
+                    // 체크
+                    self.grid1.removeRow(checkArray); // 체크된 행 모두 삭제하기
+                    dews.ui.snackbar.info("저장을 눌러 삭제를 완료하세요.")
+                });
+        } catch (error) {
+            console.error(error);
+            dews.error(error);
+        }
     });
     dews.ui.mainbuttons.save.click(/*f24a940a-f432-449e-bb2b-3bc52149c6e0*/ function () {
-        // TODO: 데이터소스를 저장합니다.
+        // 변경된 데이터 체크
         if (self.ds1.getDirtyDataCount() == 0) { //변경된 데이터 갯수 
             dews.alert('변경된 데이터가 없습니다.');
             return false;
         }
     
+        //필수 필드값 데이터 체크
         if (self.grid1.validate().result == false) {
             dews.alert('필수 값이 입력되지 않은 항목이 있습니다.');
-            console.log("왜?" + self.grid1);
             return false;
         }
         //showTooltip : 첫 번째 미입력 필수 입력 셀로 이동하여 필수 입력 툴팁을 띄울지 여부 설정
@@ -191,25 +209,21 @@
         }
     
     
-        //서비스 파라미터명과 데이터소스명이 다른경우
-        dews.confirm('수정된 데이터를 저장하시겠습니까 ? ', 'question').yes(function () {
+        //저장 API 서비스 호출
+        dews.confirm('데이터를 저장하시겠습니까 ? ', 'question').yes(function () {
             dews.api.post(dews.url.getApiUrl('HR', 'PAMODM01800_Service', 'pamodm01800_service_save'), {
                 async: false, //비동기 여부 
                 data: {
-                    //ServiceParameterName : ServiceParameterValue
-                    ds1: JSON.stringify(self.ds1.getDirtyData()),
-                    // , //변경된 데이터 전부 가져오기,
-                    COMPANY_CD: '5000'
-                    // param2: 'value2'
+                    ds1: JSON.stringify(self.ds1.getDirtyData())
                 }
             }).done(function (data) {
                 dews.ui.snackbar.ok('자료가 정상적으로 저장되었습니다.');
                 self.ds1.read();
-                alert("done여기왔어");
+                alert("자료가 정상적으로 저장되었습니다.");
             }).fail(function (xhr, status, error) {
                 //dews.error('저장이 실패하였습니다.', 'ico1');
                 dews.ui.snackbar.error(error);
-                alert("error 여기왔어");
+                alert("저장 실패하였습니다.");
             });
         });
     
@@ -239,27 +253,32 @@
           field: 'KOR_NM',
           title: '성명',
           width: 90,
-          align: 'left'
+          align: 'left',
+          attributes: { class: 'readonly' }
         },
         {
           field: 'DEPT_CD',
           title: '부서코드',
-          width: 80
+          width: 80,
+          attributes: { class: 'readonly' }
         },
         {
           field: 'OGRP_CD',
           title: '직군코드',
-          width: 80
+          width: 80,
+          attributes: { class: 'readonly' }
         },
         {
           field: 'PSTN_CD',
           title: '직급코드',
-          width: 80
+          width: 80,
+          attributes: { class: 'readonly' }
         },
         {
           field: 'JNCO_DT',
           title: '입사일',
           width: 80,
+          attributes: { class: 'readonly' },
           formats: {
             type: 'date',
             format: 'yyyy-MM-dd'
@@ -272,12 +291,14 @@
         {
           field: 'MNG_LP',
           title: '승격일',
-          width: 60
+          width: 60,
+          attributes: { class: 'readonly' }
         },
         {
           field: 'MNG_EP',
           title: '퇴직예정일',
-          width: 60
+          width: 60,
+          attributes: { class: 'readonly' }
         },
         {
           field: 'START_DT',
@@ -311,23 +332,39 @@
           field: 'TM_CD_NM',
           title: '시간코드명',
           width: 90,
-          align: 'left'
+          align: 'left',
+          attributes: { class: 'readonly' }
         },
         {
           field: 'DOF_TP',
           title: '휴무유형',
-          width: 60,
-          attributes: { class: 'required' }
+          width: 60
         },
         {
           field: 'START_TM',
           title: '시작시간',
-          width: 60
+          width: 60,
+          formats: {
+            type: 'time',
+            format: 'hh:mm'
+          },
+          editor: {
+            type: 'time',
+            format: 'HH:mm'
+          }
         },
         {
           field: 'END_TM',
           title: '종료시간',
-          width: 60
+          width: 60,
+          formats: {
+            type: 'time',
+            format: 'hh:mm'
+          },
+          editor: {
+            type: 'time',
+            format: 'HH:mm'
+          }
         },
         {
           field: 'DOF_TM_CNT',
@@ -343,7 +380,11 @@
       fixed: {
         colCount: 0,
         rightColCount: 0
-      }
+      },
+      changing: /*b38d4119-0b74-4429-8531-f17595654261*/ function (e) {
+            console.log("사원번호 뭐냐 ? ");
+        }
+    
     });
     
     

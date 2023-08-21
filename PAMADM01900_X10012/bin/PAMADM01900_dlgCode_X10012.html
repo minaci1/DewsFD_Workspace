@@ -1,0 +1,107 @@
+<!--##afd2d85c-3345-459a-aaee-2de30bcc7e49##-->
+<!--##PAMADM01900_dlgCode_X10012##-->
+<!--##Hs6rXMHg124iMiTBNRfz4yb+fyXlga9FG8ZSxvknH4Hu5VsZjBC73J7JEv1mOe7MEmgZpPNAddWn3bapgYDmFw==##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: PAMADM01900_dlgCode_X10012
+  # PageTitle: 계약상태 도움창
+  # Server: https://dev.comet.duzon.net/
+-->
+<!--
+
+-->
+
+<div class="dews-dialog-contents-area" id="">
+  <div class="dews-ui-container-panel" data-dews-fit-bottom="true">
+    <div class="dews-container-item" data-dews-position="normal">
+      <div id="grid1" class="dews-ui-grid"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0';
+
+
+    /*7fc97d16-ddd3-48ea-853d-5ee6474250cd*/ var thisDlg = dews.ui.dialog(self.$content.prop("id"));
+    
+    
+    self.cont_st_ds_ct = dews.ui.dataSource('cont_st_ds_ct', {
+      grid: true,
+      transport: {
+        read: {
+          url: dews.url.getApiUrl('HR', 'PamadmServiceX10012', 'pamadm01900_ma_cont_st'),
+          data: function () {
+            return {
+              field_cd: 'S00070',
+              module_cd: 'MA'
+            };
+          }
+        }
+      },
+      schema: {
+        model: {
+          fields: [
+            { field: 'SYSDEF_CD', editable: false, dataType: 'string' }, 
+            { field: 'SYSDEF_NM', editable: false, dataType: 'string' }
+          ]
+    
+        }
+      }
+    });
+    
+    
+    dews.ui.grid(self.$grid1, {
+      dataSource: self.cont_st_ds_ct,
+      rowNo: false,
+      selectable: true,
+      copyMode: 'cell',
+      columns: [
+        {
+          field: 'SYSDEF_CD',
+          title: '코드',
+          width: 80,
+          visible: false,
+          editor: {
+            type: 'codepicker',
+            helpCode: 'H_SD_CSF_CD_C',
+            codeField: 'SYSDEF_CD',
+            textField: 'SYSDEF_NM',
+            helpTitle: '분류',
+            helpSize: 'medium'
+          }
+        },
+        {
+          field: 'SYSDEF_NM',
+          title: '계약상태',
+          width: 150,
+          align: 'left'
+        }
+      ],
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      }
+    });
+    
+    
+    
+    
+    /*b480bc46-5075-4494-95f6-a1efdef7890b*/ thisDlg.buttons.ok.on('click', function (e) {
+      thisDlg.ok(self.grid1.dataItems(self.grid1.getCheckedIndex()));
+    });
+    
+
+  
+  });
+
+</script>

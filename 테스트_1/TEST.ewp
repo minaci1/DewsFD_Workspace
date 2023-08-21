@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="타이틀" name="TEST" type="page">
+  <canvas uid="canvas-1485142915100" type="page" title="타이틀" preReady="62785503-9932-46cf-bd65-de232fcfeb49" component="" function="">
+    <pageInformation>
+      <version>1.0</version>
+      <create>minaci00093</create>
+      <modify>minaci00093</modify>
+      <builddate>2023-08-10T10:29:04.6854358+09:00</builddate>
+      <createdate>2023-08-03T13:14:23.0601846+09:00</createdate>
+      <modifieddate>2023-08-10T10:29:04.6854358+09:00</modifieddate>
+    </pageInformation>
+    <mainButtons uid="mainButtons-1385142915113">
+      <mainButton uid="mainButton-1485142971049" id="information" buttonAttr="normal" type="information" />
+      <mainButton uid="mainButton-1485142971050" id="localize" buttonAttr="disabled" type="localize" />
+      <mainButton uid="mainButton-1485142971051" id="approval" buttonAttr="normal" type="approval" />
+      <mainButton uid="mainButton-1485142971058" id="etn-approval" buttonAttr="normal" type="etn-approval" />
+      <mainButton uid="mainButton-1485142971052" id="add" buttonAttr="normal" type="add" />
+      <mainButton uid="mainButton-1485142971053" id="search" buttonAttr="normal" type="search" />
+      <mainButton uid="mainButton-1485142971054" id="delete" buttonAttr="normal" type="delete" />
+      <mainButton uid="mainButton-1485142971055" id="print" buttonAttr="normal" type="print" click="" />
+      <mainButton uid="mainButton-1485142971056" id="save" buttonAttr="normal" type="save" />
+      <mainButton uid="mainButton-1485142971057" id="configure" buttonAttr="normal" type="configure" />
+    </mainButtons>
+    <containerPanel uid="containerPanel-b8e26da7" id="containerpanel1" height_type="px" containerResize="false">
+      <containerItem uid="containerItem-b0fd45d6" id="containerpanelitem1" width_type="px" location="normal">
+        <grid uid="grid-e0ac6759" id="grid1" dataSource="" height_type="px" editable="false" movable="false" rowNo="true" selectable="false" checkable="false" pasteAddRowEvent="false" sortable="false" shiftCheck="false" autoBind="false" requiredCheck="false" stateColumn="false" noData="false" noDataMessage="데이터가 없습니다" fillWidth="true" resizable="true" contextType="Boolean" context="false" contextex="true" skipEdit="false" copyMode="cell" multiFooterCnt="0" multiHeaderSummaryCnt="0" useGridUserGroup="false">
+          <columns />
+          <filter filterType="Boolean" filter="true" iconVisible="false" />
+          <contextObject excelDownload="true" fixed="true" search="true" excelDownloadExpandAll="true" excelFileNameSuffixDate="false" excelFileNameSuffixDateFormat="">
+            <gridContextItems />
+          </contextObject>
+          <detailGrid addedRowDataSourceRead="true" />
+          <gridGroupColumns />
+          <fixed colCount="0" rightColCount="0" />
+          <styles heightTyp="string">
+            <rowNo />
+            <cellBorder />
+            <font bold="false" />
+            <padding />
+            <heightObject />
+          </styles>
+          <note>
+            <keys />
+          </note>
+        </grid>
+      </containerItem>
+    </containerPanel>
+    <conditionPanel uid="conditionPanel-04cb0a60" id="conditionpanel1" margin="false" optional="true" optionalcollapsed="true" columnLength="4" labelAlign="left">
+      <conditionGroup uid="conditionGroup-c21a9a86" type="required">
+        <conditionItem uid="conditionItem-184671baa79e4b50846412243e62c7dc" columnSize="1" text="회계단위">
+          <combobox uid="combobox-424770689ac648e096a11e550be003e2" id="txt1" dataSource="" pipeparam="" width_type="px" disabled="false" readonly="false" state="basic">
+            <designerComment>회계단위</designerComment>
+          </combobox>
+        </conditionItem>
+        <conditionItem uid="conditionItem-f6b6c3c72bf445d3ab5509ed5b9a4d2f" columnSize="1" text="회계일">
+          <monthpicker uid="monthpicker-6ae0febc8b4f4ad5a5e1ea423ff38f28" id="dp1" disabled="false" readonly="false" state="required" min_type="value" max_type="value" predefined="false" width_type="px">
+            <designerComment>회계일</designerComment>
+          </monthpicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-c9e4281b832c4a50b22d574c1c0a9e1e" columnSize="1" text="담당자">
+          <codepicker uid="codepicker-e69442e8515e4f96ac4caa0872a8b20e" id="cdp1" disabled="false" readonly="false" state="basic" helpCode="H_HR_EMP_MST_S11" codeField="EMP_NO" textField="KOR_NM" helpCustom="false" helpParams_type="mapping" helpTitle="사원도움창" helpSize="medium" useKeyword="false" clearKeyword="false" ajax="false" width_type="px">
+            <designerComment>담당자</designerComment>
+            <mapping />
+          </codepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-037f43f5" columnSize="1" text="라벨" state="basic">
+          <textbox uid="textbox-d41f57f6" id="txt1" disabled="false" readonly="false" state="basic" predefined="false" useSecureMask="false" multiline="false" width_type="px" height_type="px" rows="0" maxlength="0" password="false" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-b05af66e" columnSize="1" text="라벨" state="basic">
+          <textbox uid="textbox-dc563351" id="txt3" disabled="false" readonly="false" state="basic" predefined="false" useSecureMask="false" multiline="false" width_type="px" height_type="px" rows="0" maxlength="0" password="false" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-60c95113" columnSize="1" text="라벨" state="basic">
+          <button uid="button-05769439" id="btn1" buttonType="normal" useemphasize="true" emphasize="blue" disabled="false" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-d906e398" columnSize="1" text="라벨" state="basic">
+          <checkbox uid="checkbox-f7ceaa25" id="chk1" disabled="false" checked="false" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-54e174f8" columnSize="1" text="라벨" state="basic">
+          <numerictextbox uid="numerictextbox-6f9ae5208e354751ac8596aa0d4e14b5" id="ntxt1" disabled="false" readonly="false" state="basic" spinners="false" step="0" predefined="false" currency="" increaseValue="1000" increaseType="multiple" restrictDecimals="false" selectOnFocus="false" round="round" width_type="px" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-51f339bc" columnSize="1" text="라벨" state="basic">
+          <textbox uid="textbox-5b5e5612" id="txt4" disabled="false" readonly="false" state="basic" predefined="false" useSecureMask="false" multiline="true" width_type="px" width="" height_type="px" height="75" rows="0" maxlength="0" password="false" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-2f6ea64f67e7444f98c267b0ea5d7b1c" columnSize="2" text="라벨">
+          <zipcodepicker uid="zipcodepicker-f5d3050583be455989818a6c7cc4429b" id="aaa" disabled="false" state="basic" addressBind="bbb" addressType="street" />
+          <textbox uid="textbox-72f714b845e846a6bbe43c5744e805d7" id="bbb" disabled="false" readonly="false" predefined="false" useSecureMask="false" multiline="false" width_type="px" width="301" height_type="px" height="" rows="0" maxlength="0" password="false" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-13d4a44c96b8490697c2adb86849ec43" columnSize="1" text="라벨">
+          <radiogroup uid="radiogroup-5afdc602237d44969f2f68d24bf533cd" id="aaa" disabled="false" align="horizontal">
+            <radioitem uid="radioitem-9c3efed2" disabled="false" selected="false" />
+            <radioitem uid="radioitem-e48ae817" disabled="false" selected="false" />
+            <radioitem uid="radioitem-f4e45b8b" disabled="false" selected="false" />
+            <radioitem uid="radioitem-31f24dde" disabled="false" selected="false" />
+          </radiogroup>
+        </conditionItem>
+        <conditionItem uid="conditionItem-31d5bc3c" columnSize="1" text="라벨" state="basic">
+          <radiogroup uid="radiogroup-b3d67d09" id="rdog6" disabled="false" align="horizontal">
+            <radioitem uid="radioitem-9afb93c0" disabled="false" selected="false" />
+            <radioitem uid="radioitem-812c9553" disabled="false" selected="false" />
+            <radioitem uid="radioitem-9c3796df" disabled="false" selected="false" />
+            <radioitem uid="radioitem-7d9e268e" disabled="false" selected="false" />
+            <radioitem uid="radioitem-90f34d75" disabled="false" selected="false" />
+            <radioitem uid="radioitem-2f667c06" disabled="false" selected="false" />
+          </radiogroup>
+        </conditionItem>
+        <conditionItem uid="conditionItem-0d0728bd" columnSize="1" text="라벨" state="basic">
+          <radiogroup uid="radiogroup-a6562f2c" id="rdog7" disabled="false" align="horizontal">
+            <radioitem uid="radioitem-02c0058c" disabled="false" selected="false" />
+          </radiogroup>
+        </conditionItem>
+        <conditionItem uid="conditionItem-8cb6e722" columnSize="1" text="라벨" state="basic">
+          <radiogroup uid="radiogroup-7ecc0385" id="rdog8" disabled="false" align="horizontal">
+            <radioitem uid="radioitem-a934a549" disabled="false" selected="false" />
+          </radiogroup>
+        </conditionItem>
+        <conditionItem uid="conditionItem-7088300b" columnSize="1" text="라벨" state="basic">
+          <dropdownlist uid="dropdownlist-b549e1e7" id="ddl1" autoBind="false" dataSource="pipeDataSource1" valueField="SYSDEF_CD" textField="SYSDEF_NM" pipeparam="P00640" useDefault="false" defaultValue="" defaultText="" width_type="px" disabled="false" readonly="false" autoOpen="false" useNumkey="false" showTooltip="true" showValueTooltip="true" state="basic" />
+        </conditionItem>
+      </conditionGroup>
+      <conditionGroup uid="conditionGroup-90c56438" type="optional">
+        <conditionItem uid="conditionItem-929049f3" columnSize="1" text="라벨" state="basic">
+          <textbox uid="textbox-773aa6b2" id="txt2" disabled="false" readonly="false" state="basic" predefined="false" useSecureMask="false" multiline="false" width_type="px" height_type="px" rows="0" maxlength="0" password="false" />
+        </conditionItem>
+      </conditionGroup>
+    </conditionPanel>
+    <containerPanel uid="containerPanel-a5c6947b" id="containerpanel3" height_type="px" fitBottom="true" containerResize="false">
+      <containerItem uid="containerItem-a1ee4bde" id="containerpanelitem4" width_type="px" width="300" location="left" />
+      <containerItem uid="containerItem-69fe8ef4" id="containerpanelitem5" width_type="px" width="" location="normal" />
+    </containerPanel>
+  </canvas>
+  <dataSources>
+    <datasource uid="datasource-be919611307a482489fe0725272ed2f3" id="ds1" isTreeGrid="true" grid="true" aggregate="false" group="false" userGroup="false" type="localdata" module="" service="" urlpattern="" params_type="none" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="scroll" pagingCount="500" error="" DSType="TreeGrid" isPost="false">
+      <mapping />
+      <columns>
+        <column field="DEPT_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="부서코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="DEPT_NM" unionfield="" dataType="object" editable="false" useType="false" isID="true" isChildren="true" description="부서명" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+    <datasource uid="datasource-22fb212fd4bf4db1b99b0ec8e2264abb" id="pipeDataSource1" isTreeGrid="false" grid="false" aggregate="false" group="false" userGroup="false" type="dataservice" module="CM" service="CommonCodeDtlService" urlpattern="common_ci_codeDtl_list" params_type="mapping" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="true" pipeparam="field_cd_pipe" pipecolumn="FIELD_CD" paging="false" pagingCount="500" error="" DSType="None" isPost="false">
+      <mapping>
+        <param parameter="end_dt" applyType="constant" dataType="string" />
+        <param parameter="foreign_yn" applyType="constant" dataType="string" />
+        <param parameter="field_cd_pipe" applyType="constant" dataType="string" value="P00640" />
+        <param parameter="module_cd" applyType="constant" dataType="string" value="HR" />
+        <param parameter="syscode_yn" applyType="constant" dataType="string" />
+        <param parameter="keyword" applyType="constant" dataType="string" />
+        <param parameter="base_yn" applyType="constant" dataType="string" />
+      </mapping>
+      <columns>
+        <column field="FIELD_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="디테일코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드디테일코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="SYSDEF_NM" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="코드디테일명" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="FLAG_CD" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="참조코드" useAggregate="false" aggregate="" useGroup="false" />
+        <column field="END_DT" unionfield="" dataType="string" editable="false" useType="true" isID="false" isChildren="false" description="종료일" useAggregate="false" aggregate="" useGroup="false" />
+      </columns>
+      <widgetSampleDatas />
+    </datasource>
+  </dataSources>
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[#txt1{
+    background-color: aqua;
+}]]></pageCssStyle>
+  <stylesheets />
+  <javascripts>
+    <javascript id="62785503-9932-46cf-bd65-de232fcfeb49"><![CDATA[alert("te ");
+]]></javascript>
+  </javascripts>
+  <settings />
+  <datas />
+</page>

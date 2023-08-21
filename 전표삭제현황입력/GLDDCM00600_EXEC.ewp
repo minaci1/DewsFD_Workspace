@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="전표삭제현황입력" name="GLDDCM00600_EXEC" type="page">
+  <canvas uid="canvas-1485142915100" type="page" title="전표삭제현황입력" component="" function="">
+    <pageInformation>
+      <version>1.0</version>
+      <create>minaci00093</create>
+      <modify>minaci00093</modify>
+      <builddate>2023-08-06T22:34:33.1255806+09:00</builddate>
+      <createdate>2023-08-06T22:01:13.2759945+09:00</createdate>
+      <modifieddate>2023-08-06T22:34:33.1255806+09:00</modifieddate>
+    </pageInformation>
+    <mainButtons uid="mainButtons-1385142915113">
+      <mainButton uid="mainButton-1485142971049" id="information" buttonAttr="normal" type="information" />
+      <mainButton uid="mainButton-1485142971050" id="localize" buttonAttr="disabled" type="localize" />
+      <mainButton uid="mainButton-1485142971051" id="approval" buttonAttr="normal" type="approval" />
+      <mainButton uid="mainButton-1485142971058" id="etn-approval" buttonAttr="normal" type="etn-approval" />
+      <mainButton uid="mainButton-1485142971052" id="add" buttonAttr="normal" type="add" />
+      <mainButton uid="mainButton-1485142971053" id="search" buttonAttr="normal" type="search" />
+      <mainButton uid="mainButton-1485142971054" id="delete" buttonAttr="normal" type="delete" />
+      <mainButton uid="mainButton-1485142971055" id="print" buttonAttr="normal" type="print" />
+      <mainButton uid="mainButton-1485142971056" id="save" buttonAttr="normal" type="save" />
+      <mainButton uid="mainButton-1485142971057" id="configure" buttonAttr="normal" type="configure" />
+    </mainButtons>
+    <conditionPanel uid="conditionPanel-b20f95d2" id="searchCondition" margin="false" optional="false" optionalcollapsed="true" columnLength="3" labelAlign="left">
+      <conditionGroup uid="conditionGroup-ce15c0c7" type="required">
+        <conditionItem uid="conditionItem-872d3457" columnSize="1" text="회계단위" state="basic">
+          <multicodepicker uid="multicodepicker-9687de3d" id="pc_cd" disabled="false" readonly="false" ajax="false" state="required" helpCode="H_BM_PC_MST_S" codeField="PC_CD" textField="PC_NM" virtualScroll="false" helpCustom="false" helpParams_type="mapping" helpParams="" helpTitle="회계단위 도움창" helpSize="big" width_type="px">
+            <mapping>
+              <param parameter="company_cd" applyType="constant" dataType="number" value="self.user.companyCode" />
+            </mapping>
+          </multicodepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-abf5e281" id="acct_dt" columnSize="1" text="회계일" state="basic">
+          <periodpicker uid="periodpicker-c6501879" id="pp1" disabled="false" readonly="false" state="required" startDate_type="value" endDate_type="value" predefined="false" buttons="true" width_type="px" />
+        </conditionItem>
+        <conditionItem uid="conditionItem-d921eb69" columnSize="1" text="작성부서" state="basic">
+          <multicodepicker uid="multicodepicker-849e2c1c" id="dept_cd" disabled="false" readonly="false" ajax="false" state="basic" helpCode="H_MA_DEPT_MST_S" codeField="DEPT_CD" textField="DEPT_NM" virtualScroll="false" helpCustom="false" helpParams_type="mapping" helpParams="" helpTitle="부서 도움창" helpSize="big" width_type="px">
+            <mapping>
+              <param parameter="company_cd" applyType="constant" dataType="number" value="self.user.companyCode" />
+              <param parameter="auth_bizarea" applyType="constant" />
+              <param parameter="auth_pc" applyType="constant" />
+              <param parameter="auth_dept" applyType="constant" />
+              <param parameter="up_dept_cd" applyType="constant" />
+              <param parameter="dept_lv" applyType="constant" />
+            </mapping>
+          </multicodepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-fa51f151" columnSize="1" text="작성자" state="basic">
+          <codepicker uid="codepicker-a9582fe3" id="emp_no" disabled="false" readonly="false" state="basic" helpCode="H_HR_EMP_MST_S" codeField="EMP_NO" textField="KOR_NM" helpCustom="false" helpParams_type="mapping" helpParams="" helpTitle="사원 도움창" helpSize="big" useKeyword="true" clearKeyword="false" ajax="true" width_type="px">
+            <mapping>
+              <param parameter="company_cd" applyType="constant" dataType="number" value="self.user.companyCode" />
+              <param parameter="pc_cd" applyType="constant" />
+              <param parameter="auth_bizarea" applyType="constant" />
+              <param parameter="auth_dept" applyType="control" dataType="dept_cd" value="codes" />
+              <param parameter="decrypt_yn" applyType="constant" />
+              <param parameter="menu_cd" applyType="constant" />
+              <param parameter="cd_range_emp" applyType="constant" />
+            </mapping>
+          </codepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-3045a826" columnSize="1" text="라벨" state="basic" />
+      </conditionGroup>
+    </conditionPanel>
+    <containerPanel uid="containerPanel-d32efa87" id="containerpanel1" height_type="px" fitBottom="true" containerResize="false">
+      <containerItem uid="containerItem-926d109f" id="containerpanelitem1" width_type="px" location="normal">
+        <grid uid="grid-34c58229" id="grid1" dataSource="" height_type="px" editable="false" movable="false" rowNo="true" selectable="false" checkable="false" pasteAddRowEvent="false" sortable="false" shiftCheck="false" autoBind="false" requiredCheck="false" stateColumn="false" noData="false" noDataMessage="데이터가 없습니다" fillWidth="true" resizable="true" contextType="Boolean" context="false" contextex="true" skipEdit="false" copyMode="cell" multiFooterCnt="0" multiHeaderSummaryCnt="0" useGridUserGroup="false">
+          <columns />
+          <filter filterType="Boolean" filter="true" iconVisible="false" />
+          <contextObject excelDownload="true" fixed="true" search="true" excelDownloadExpandAll="true" excelFileNameSuffixDate="false" excelFileNameSuffixDateFormat="" />
+          <detailGrid addedRowDataSourceRead="true" />
+          <gridGroupColumns />
+          <fixed colCount="0" rightColCount="0" />
+          <styles heightTyp="string">
+            <rowNo />
+            <cellBorder />
+            <font bold="false" />
+            <padding />
+            <heightObject />
+          </styles>
+          <note>
+            <keys />
+          </note>
+        </grid>
+      </containerItem>
+    </containerPanel>
+  </canvas>
+  <dataSources>
+    <datasource uid="datasource-a1f5213b3f86473ab5d3844cacaec7c7" id="ds1" isTreeGrid="false" grid="true" aggregate="false" group="false" userGroup="false" type="dataservice" module="" service="" urlpattern="" params_type="none" params="" preview_type="none" preview="" localdata="" url="" useGroup="false" isMultiPipe="false" pipeparam="" pipecolumn="" paging="false" pagingCount="500" error="" DSType="Grid" isPost="false">
+      <mapping />
+      <columns />
+      <widgetSampleDatas />
+    </datasource>
+  </dataSources>
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[]]></pageCssStyle>
+  <stylesheets />
+  <javascripts />
+  <settings />
+  <datas />
+</page>

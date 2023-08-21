@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>http://localhost:8090</url>
+  </server>
+  <serverdbsearch>
+    <url>http://localhost:8090</url>
+  </serverdbsearch>
+  <module>
+    <name>SF</name>
+    <desc>SFA</desc>
+  </module>
+  <BaseInfo>
+    <UID>f9658ac4-1388-4883-9c32-21cf99f925fe</UID>
+  </BaseInfo>
+  <variables />
+  <outputs />
+</Environment>

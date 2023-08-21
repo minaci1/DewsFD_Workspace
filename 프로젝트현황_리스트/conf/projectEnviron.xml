@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <server>
+    <url>https://dev.comet.duzon.net</url>
+  </server>
+  <serverdbsearch>
+    <url>https://dev.comet.duzon.net</url>
+  </serverdbsearch>
+  <module>
+    <name>FI</name>
+    <desc>Financial Accounting</desc>
+  </module>
+  <BaseInfo>
+    <UID>85f0a3ab-fdaf-4e4d-b058-fed36cc723f8</UID>
+  </BaseInfo>
+  <SourceBank>
+    <code>D000003989</code>
+  </SourceBank>
+  <variables />
+  <outputs />
+</Environment>

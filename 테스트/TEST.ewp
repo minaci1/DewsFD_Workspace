@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page title="타이틀" name="TEST" type="page">
+  <canvas uid="canvas-1485142915100" type="page" title="타이틀" preReady="62785503-9932-46cf-bd65-de232fcfeb49" component="" function="">
+    <pageInformation>
+      <version>1.0</version>
+      <create>minaci00093</create>
+      <modify>minaci00093</modify>
+      <builddate>2023-08-10T10:29:23.7440891+09:00</builddate>
+      <createdate>2023-08-03T13:14:23.0601846+09:00</createdate>
+      <modifieddate>2023-08-10T10:29:23.7440891+09:00</modifieddate>
+    </pageInformation>
+    <mainButtons uid="mainButtons-1385142915113">
+      <mainButton uid="mainButton-1485142971049" id="information" buttonAttr="normal" type="information" />
+      <mainButton uid="mainButton-1485142971050" id="localize" buttonAttr="disabled" type="localize" />
+      <mainButton uid="mainButton-1485142971051" id="approval" buttonAttr="normal" type="approval" />
+      <mainButton uid="mainButton-1485142971058" id="etn-approval" buttonAttr="normal" type="etn-approval" />
+      <mainButton uid="mainButton-1485142971052" id="add" buttonAttr="normal" type="add" />
+      <mainButton uid="mainButton-1485142971053" id="search" buttonAttr="normal" type="search" />
+      <mainButton uid="mainButton-1485142971054" id="delete" buttonAttr="normal" type="delete" />
+      <mainButton uid="mainButton-1485142971055" id="print" buttonAttr="normal" type="print" />
+      <mainButton uid="mainButton-1485142971056" id="save" buttonAttr="normal" type="save" />
+      <mainButton uid="mainButton-1485142971057" id="configure" buttonAttr="normal" type="configure" />
+    </mainButtons>
+    <containerPanel uid="containerPanel-b8e26da7" id="containerpanel1" height_type="px" containerResize="false">
+      <containerItem uid="containerItem-b0fd45d6" id="containerpanelitem1" width_type="px" location="normal">
+        <grid uid="grid-e0ac6759" id="grid1" dataSource="" height_type="px" editable="false" movable="false" rowNo="true" selectable="false" checkable="false" pasteAddRowEvent="false" sortable="false" shiftCheck="false" autoBind="false" requiredCheck="false" stateColumn="false" noData="false" noDataMessage="데이터가 없습니다" fillWidth="true" resizable="true" contextType="Boolean" context="false" contextex="true" skipEdit="false" copyMode="cell" multiFooterCnt="0" multiHeaderSummaryCnt="0" useGridUserGroup="false">
+          <columns />
+          <filter filterType="Boolean" filter="true" iconVisible="false" />
+          <contextObject excelDownload="true" fixed="true" search="true" excelDownloadExpandAll="true" excelFileNameSuffixDate="false" excelFileNameSuffixDateFormat="">
+            <gridContextItems />
+          </contextObject>
+          <detailGrid addedRowDataSourceRead="true" />
+          <gridGroupColumns />
+          <fixed colCount="0" rightColCount="0" />
+          <styles heightTyp="string">
+            <rowNo />
+            <cellBorder />
+            <font bold="false" />
+            <padding />
+            <heightObject />
+          </styles>
+          <note>
+            <keys />
+          </note>
+        </grid>
+      </containerItem>
+    </containerPanel>
+    <conditionPanel uid="conditionPanel-04cb0a60" id="conditionpanel1" margin="false" optional="false" optionalcollapsed="true" columnLength="3" labelAlign="left">
+      <conditionGroup uid="conditionGroup-c21a9a86" type="required">
+        <conditionItem uid="conditionItem-184671baa79e4b50846412243e62c7dc" columnSize="1" text="회계단위">
+          <combobox uid="combobox-424770689ac648e096a11e550be003e2" id="txt1" pipeparam="" width_type="px" disabled="false" readonly="false" state="basic">
+            <designerComment>회계단위</designerComment>
+          </combobox>
+        </conditionItem>
+        <conditionItem uid="conditionItem-f6b6c3c72bf445d3ab5509ed5b9a4d2f" columnSize="1" text="회계일">
+          <monthpicker uid="monthpicker-6ae0febc8b4f4ad5a5e1ea423ff38f28" id="dp1" disabled="false" readonly="false" state="basic" min_type="value" max_type="value" predefined="false" width_type="px">
+            <designerComment>회계일</designerComment>
+          </monthpicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-c9e4281b832c4a50b22d574c1c0a9e1e" columnSize="1" text="담당자">
+          <codepicker uid="codepicker-e69442e8515e4f96ac4caa0872a8b20e" id="cdp1" disabled="false" readonly="false" helpCode="H_HR_EMP_MST_S11" codeField="EMP_NO" textField="KOR_NM" helpCustom="false" helpParams_type="mapping" helpTitle="사원도움창" helpSize="medium" useKeyword="false" clearKeyword="false" ajax="false" width_type="px">
+            <designerComment>담당자</designerComment>
+            <mapping />
+          </codepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-d0d81c41d9724068b4d2456e3cf6c705" columnSize="1" text="연말정산 부양가족 코드">
+          <multicodepicker uid="multicodepicker-e6421760c1df4b5fa0e3ac26fd69f1c4" id="_CD_TAXAREA" disabled="false" readonly="false" ajax="true" state="basic" helpCode="H_TX_TSM_HR_YREND_FMLY_MST_S" codeField="CD_TAXAREA" textField="NM_AREA" virtualScroll="false" helpCustom="false" helpURLCustom="" helpTitle="연말정산 부양가족" helpSize="medium" width_type="px">
+            <mapping>
+              <param parameter="txform_cd" applyType="constant" />
+              <param parameter="stl_tp" applyType="constant" />
+              <param parameter="rvers_yy" applyType="constant" />
+              <param parameter="emp_no" applyType="constant" />
+            </mapping>
+          </multicodepicker>
+        </conditionItem>
+        <conditionItem uid="conditionItem-ff82491881bf4473b7f8265bd4976301" columnSize="1" text="부가세 수정신고 및 경정청구 코드">
+          <codepicker uid="codepicker-cb55aaf34b1747dc884cd3b39144982e" id="_SQ_NO" disabled="false" readonly="false" state="basic" helpCode="H_TX_TSM_REPORT_SEQ_MST_S" codeField="SQ_NO" textField="NM_SQ_NO" helpCustom="false" helpURLCustom="/view/TX/TSMTAX00000_REPORT_SEQ_MST_C" helpTitle="신고구분" helpSize="medium" useKeyword="true" clearKeyword="false" ajax="true" width_type="px">
+            <mapping />
+          </codepicker>
+        </conditionItem>
+      </conditionGroup>
+    </conditionPanel>
+    <conditionPanel uid="conditionPanel-77d63006" id="conditionpanel2" margin="false" optional="false" optionalcollapsed="true" columnLength="3" labelAlign="left">
+      <conditionGroup uid="conditionGroup-04204324" type="required" />
+    </conditionPanel>
+  </canvas>
+  <dataSources />
+  <pageMarkDown><![CDATA[]]></pageMarkDown>
+  <pageCssStyle><![CDATA[]]></pageCssStyle>
+  <stylesheets />
+  <javascripts>
+    <javascript id="62785503-9932-46cf-bd65-de232fcfeb49"><![CDATA[alert("te ");
+]]></javascript>
+  </javascripts>
+  <settings />
+  <datas />
+</page>

@@ -1,0 +1,150 @@
+<!--##9da24893-da93-4076-80c3-d9c075134bf8##-->
+<!--##REMCOA00103##-->
+<!--##hxyFpNrr4GlYUSJxBM9diaUWzTBjZjGuQtrls+lYjTc=##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: REMCOA00103
+  # PageTitle: 합계및그룹_소계
+  # Server: http://localhost:8090/
+-->
+<!--
+
+-->
+
+<div class="dews-ui-container-panel" data-dews-fit-bottom="true">
+  <div class="dews-container-item" data-dews-position="normal">
+    <div id="grid1" class="dews-ui-grid"></div>
+  </div>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0';
+
+
+    
+    
+    self.ds1 = dews.ui.dataSource('ds1', {
+      grid: true,
+      schema: {
+        model: {
+          fields: [
+            { field: '지점', editable: false, dataType: 'string' }, 
+            { field: '월', editable: false, dataType: 'string' }, 
+            { field: '일자', editable: false, dataType: 'string' }, 
+            { field: '에어컨', editable: false, dataType: 'string' }, 
+            { field: '선풍기', editable: false, dataType: 'string' }
+          ]
+    
+        }
+      },
+      userGroup: true,
+      data: [
+      {
+        "지점": "춘천",
+        "월": "202002",
+        "일자": "20200202",
+        "에어컨": "90",
+        "선풍기": "120"
+      },
+      {
+        "지점": "의왕",
+        "월": "202002",
+        "일자": "20200203",
+        "에어컨": "80",
+        "선풍기": "100"
+      },
+     {
+        "지점": "강남",
+        "월": "202002",
+        "일자": "20200203",
+        "에어컨": "70",
+        "선풍기": "100"
+      },
+    ]
+    });
+    
+    
+    dews.ui.mainbuttons.localize.disable(true);
+    dews.ui.grid(self.$grid1, {
+      dataSource: self.ds1,
+      sortable: false,
+      checkable: false,
+      copyMode: 'cell',
+      columns: [
+        {
+          field: '지점',
+          title: '지점',
+          width: 60
+        },
+        {
+          field: '월',
+          title: '월',
+          width: 60,
+          footer: {
+            text: '합계',
+            align: 'center'
+          }
+        },
+        {
+          field: '일자',
+          title: '일자',
+          width: 60,
+          footer: {
+            group: {
+              text: '그룹소계'
+            },
+            align: 'center'
+          }
+        },
+        {
+          field: '에어컨',
+          title: '에어컨',
+          width: 60,
+          footer: {
+            type: 'sum',
+            group: {
+              type: 'sum'
+            },
+            align: 'center'
+          }
+        },
+        {
+          field: '선풍기',
+          title: '선풍기',
+          width: 60,
+          footer: {
+            type: 'sum',
+            group: {
+              type: 'sum'
+            },
+            align: 'center'
+          }
+        }
+      ],
+      group: [
+        { field: '지점' }
+      ],
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      }
+    });
+    
+    
+    
+    
+    
+
+  
+  });
+
+</script>

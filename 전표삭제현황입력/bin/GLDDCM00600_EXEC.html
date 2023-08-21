@@ -1,0 +1,100 @@
+<!--##ca61f2de-e413-4178-9ac6-87b9dbab1b23##-->
+<!--##GLDDCM00600_EXEC##-->
+<!--##KLVAuwd88oOOLTW0pI8A5t0oKdZJLEQjx9zRY/vX22G6EjGBPa3b0wTs0V2WCtyI##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: GLDDCM00600_EXEC
+  # PageTitle: 전표삭제현황입력
+  # Server: https://prd2.comet.duzon.net/
+-->
+<!--
+
+-->
+
+<div id="searchCondition" class="dews-ui-condition-panel" data-dews-label-align="left">
+  <ul class="required-area">
+    <li>
+      <label class="dews-ui-multilingual">회계단위</label>
+      <span>
+        <select id="pc_cd" name="pc_cd" class="dews-ui-multicodepicker required" data-dews-help-code="H_BM_PC_MST_S" data-dews-code-field="PC_CD" data-dews-text-field="PC_NM" data-dews-help-title="회계단위 도움창" data-dews-help-custom="false" data-dews-help-size="big" />
+      </span>
+    </li>
+    <li id="acct_dt">
+      <label class="dews-ui-multilingual">회계일</label>
+      <span>
+        <span id="pp1" class="dews-ui-periodpicker required"></span>
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">작성부서</label>
+      <span>
+        <select id="dept_cd" name="dept_cd" class="dews-ui-multicodepicker basic" data-dews-help-code="H_MA_DEPT_MST_S" data-dews-code-field="DEPT_CD" data-dews-text-field="DEPT_NM" data-dews-help-title="부서 도움창" data-dews-help-custom="false" data-dews-help-size="big" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">작성자</label>
+      <span>
+        <input type="text" id="emp_no" name="emp_no" class="dews-ui-codepicker basic" data-dews-help-code="H_HR_EMP_MST_S" data-dews-code-field="EMP_NO" data-dews-text-field="KOR_NM" data-dews-help-title="사원 도움창" data-dews-help-custom="false" data-dews-help-size="big" data-dews-ajax="true" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">라벨</label>
+      <span></span>
+    </li>
+  </ul>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0';
+
+
+    
+    
+    
+    
+    dews.ui.mainbuttons.localize.disable(true);
+    self.pc_cd.setHelpParams(function () {
+      return {
+        company_cd: self.user.companyCode
+      };
+    });
+    self.dept_cd.setHelpParams(function () {
+      return {
+        company_cd: self.user.companyCode,
+        auth_bizarea: '',
+        auth_pc: '',
+        auth_dept: '',
+        up_dept_cd: '',
+        dept_lv: ''
+      };
+    });
+    self.emp_no.setHelpParams(function () {
+      return {
+        company_cd: self.user.companyCode,
+        pc_cd: '',
+        auth_bizarea: '',
+        auth_dept: self.dept_cd.codes().join('|'),
+        decrypt_yn: '',
+        menu_cd: '',
+        cd_range_emp: ''
+      };
+    });
+    
+    
+    
+    
+    
+
+  
+  });
+
+</script>

@@ -1,0 +1,96 @@
+<!--##945e3597-5f3d-4923-a1a0-ba547e609ef0##-->
+<!--##TEST##-->
+<!--##Df83SvYuGJ1bCgOVJnOtgw==##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: TEST
+  # PageTitle: 타이틀
+  # Server: https://prddemo.comet.duzon.net/
+-->
+<!--
+
+-->
+
+<div id="containerpanel1" class="dews-ui-container-panel">
+  <div id="containerpanelitem1" class="dews-container-item" data-dews-position="normal">
+    <div id="grid1" class="dews-ui-grid"></div>
+  </div>
+</div>
+<div id="conditionpanel1" class="dews-ui-condition-panel" data-dews-label-align="left">
+  <ul class="required-area">
+    <li>
+      <label class="dews-ui-multilingual">회계단위</label>
+      <span>
+        <select id="txt1" name="txt1" class="dews-ui-combobox basic"></select>
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">회계일</label>
+      <span>
+        <input type="text" id="dp1" name="dp1" class="dews-ui-monthpicker basic" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">담당자</label>
+      <span>
+        <input type="text" id="cdp1" name="cdp1" class="dews-ui-codepicker" data-dews-help-code="H_HR_EMP_MST_S11" data-dews-code-field="EMP_NO" data-dews-text-field="KOR_NM" data-dews-help-title="사원도움창" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-use-keyword="false" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">연말정산 부양가족 코드</label>
+      <span>
+        <select id="_CD_TAXAREA" name="_CD_TAXAREA" class="dews-ui-multicodepicker basic" data-dews-help-code="H_TX_TSM_HR_YREND_FMLY_MST_S" data-dews-code-field="CD_TAXAREA" data-dews-text-field="NM_AREA" data-dews-help-title="연말정산 부양가족" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-ajax="true" />
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">부가세 수정신고 및 경정청구 코드</label>
+      <span>
+        <input type="text" id="_SQ_NO" name="_SQ_NO" class="dews-ui-codepicker basic" data-dews-help-code="H_TX_TSM_REPORT_SEQ_MST_S" data-dews-code-field="SQ_NO" data-dews-text-field="NM_SQ_NO" data-dews-help-title="신고구분" data-dews-help-custom="false" data-dews-help-view-url="/view/TX/TSMTAX00000_REPORT_SEQ_MST_C" data-dews-help-size="medium" data-dews-ajax="true" />
+      </span>
+    </li>
+  </ul>
+</div>
+<div id="conditionpanel2" class="dews-ui-condition-panel" data-dews-label-align="left">
+  <ul class="required-area"></ul>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0';
+
+
+    /*62785503-9932-46cf-bd65-de232fcfeb49*/ alert("te ");
+    
+    
+    
+    
+    
+    dews.ui.mainbuttons.localize.disable(true);
+    dews.ui.grid(self.$grid1, {
+      sortable: false,
+      autoBind: false,
+      checkable: false,
+      copyMode: 'cell',
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      }
+    });
+    
+    
+    
+    
+    
+
+  
+  });
+
+</script>
