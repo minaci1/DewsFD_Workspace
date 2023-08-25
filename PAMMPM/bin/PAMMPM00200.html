@@ -1,0 +1,536 @@
+<!--##ec60ae5a-08e1-4186-9039-6769008fc438##-->
+<!--##PAMMPM00200##-->
+<!--##XQ0f9gPVCx//mYJMQfxbFKUYqhibj2M4ijhRpPbRHBQ=##-->
+<!--
+  DEWS UI/UX IDE - Build Result - v1.5
+  # PageID: PAMMPM00200
+  # PageTitle: 출산휴가확인서등록
+  # Server: http://localhost:8090/
+-->
+<!--
+
+-->
+
+<div class="dews-ui-condition-panel">
+  <ul class="required-area">
+    <li>
+      <label class="dews-ui-multilingual">등록일</label>
+      <span>
+        <span id="monthperiodpicker1" class="dews-ui-periodpicker required"></span>
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">신청종류</label>
+      <span>
+        <select id="dropdownlist1" name="dropdownlist1" class="dews-ui-dropdownlist basic" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+      </span>
+    </li>
+    <li>
+      <label class="dews-ui-multilingual">검색어</label>
+      <span>
+        <input id="textbox1" name="textbox1" type="text" class="dews-ui-textbox basic" />
+      </span>
+    </li>
+  </ul>
+</div>
+<div class="dews-button-group" style="text-align: right;">
+  <button class="dews-ui-button">신청서조회</button>
+  <button class="dews-ui-button">마감</button>
+  <button class="dews-ui-button">마감취소</button>
+</div>
+<div class="dews-ui-container-panel">
+  <div class="dews-container-item" data-dews-position="left" data-dews-width="1013px">
+    <div id="grid2" class="dews-ui-grid"></div>
+  </div>
+  <div class="dews-container-item" data-dews-position="normal" data-dews-width="600px">
+    <div class="dews-ui-form-panel" data-dews-item-width="723">
+      <ul>
+        <li>
+          <label>신청번호</label>
+          <span>
+            <input id="REQNO" name="REQNO" type="text" class="dews-ui-textbox" readonly="readonly" style="width: 132px;" />
+            <button id="REQNO_B" class="dews-ui-button">?</button>
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <label>등록일</label>
+          <span>
+            <input type="text" id="datepicker2" name="datepicker2" class="dews-ui-datepicker required" style="text-align: right;" />
+          </span>
+        </li>
+        <li>
+          <label>신고일</label>
+          <span>
+            <input type="text" id="datepicker3" name="datepicker3" class="dews-ui-datepicker basic" />
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="dews-ui-arcodien" data-dews-arcodien-height="0" data-dews-item-height="0">
+      <ul>
+        <li class="dews-arcodien-item" data-dews-item-title="사업장정보" data-dews-item-height="0" data-dews-item-open="true">
+          <div class="dews-ui-form-panel">
+            <ul>
+              <li>
+                <label>사업장관리번호</label>
+                <span>
+                  <input id="textbox10" name="textbox10" type="text" class="dews-ui-textbox basic" />
+                </span>
+              </li>
+              <li>
+                <label>사업장</label>
+                <span>
+                  <input type="text" id="textbox11" name="textbox11" class="dews-ui-codepicker basic" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-use-keyword="false" />
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li class="col-2">
+                <label>사업장소재지</label>
+                <span>
+                  <input id="POST_NO" class="dews-ui-zipcodepicker basic" />
+                  <input id="BASE_ADDR" name="BASE_ADDR" type="text" class="dews-ui-textbox" style="width: 419px;" />
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li class="col-2">
+                <label>상세주소</label>
+                <span>
+                  <input id="textbox12" name="textbox12" type="text" class="dews-ui-textbox basic" />
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <label>우선지원대상기업</label>
+                <span>
+                  <select id="radiogroup5" class="dews-ui-radio-group">
+                    <option class="dews-ui-multilingual" value="">해당</option>
+                    <option class="dews-ui-multilingual" value="">비해당</option>
+                  </select>
+                </span>
+              </li>
+              <li>
+                <label>담당자</label>
+                <span>
+                  <input type="text" id="codepicker3" name="codepicker3" class="dews-ui-codepicker basic" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-ajax="true" />
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <label>전화번호</label>
+                <span>
+                  <input id="textbox13" name="textbox13" type="text" class="dews-ui-textbox basic" />
+                </span>
+              </li>
+              <li>
+                <label>이메일</label>
+                <span>
+                  <input id="textbox14" name="textbox14" type="text" class="dews-ui-textbox basic" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="dews-ui-arcodien" data-dews-arcodien-height="0" data-dews-item-height="0">
+      <ul>
+        <li class="dews-arcodien-item" data-dews-item-title="대상자정보" data-dews-item-height="0" data-dews-item-open="true">
+          <div class="dews-ui-form-panel">
+            <ul>
+              <li class="col-2">
+                <label>신청종류</label>
+                <span>
+                  <select id="radiogroup6" class="dews-ui-radio-group">
+                    <option class="dews-ui-multilingual" value="">출산전후휴가</option>
+                    <option class="dews-ui-multilingual" value="">유산,사산휴가</option>
+                  </select>
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <label>사원</label>
+                <span>
+                  <input type="text" id="codepicker4" name="codepicker4" class="dews-ui-codepicker basic" readonly="readonly" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-ajax="true" />
+                </span>
+              </li>
+              <li>
+                <label>주민등록번호</label>
+                <span>
+                  <input id="textbox15" name="textbox15" type="text" class="dews-ui-textbox basic" readonly="readonly" />
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <label>출산(예정)일</label>
+                <span>
+                  <input type="text" id="datepicker4" name="datepicker4" class="dews-ui-datepicker basic" />
+                </span>
+              </li>
+              <li>
+                <label>분할사용여부</label>
+                <span>
+                  <select id="radiogroup7" class="dews-ui-radio-group">
+                    <option class="dews-ui-multilingual" value="">예</option>
+                    <option class="dews-ui-multilingual" value="">아니오</option>
+                  </select>
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <label>임신기간(유산,사산)</label>
+                <span>
+                  <select id="dropdownlist5" name="dropdownlist5" class="dews-ui-dropdownlist basic" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+                </span>
+              </li>
+              <li>
+                <label>다태아여부</label>
+                <span>
+                  <select id="radiogroup8" class="dews-ui-radio-group">
+                    <option class="dews-ui-multilingual" value="">예</option>
+                    <option class="dews-ui-multilingual" value="">아니오</option>
+                  </select>
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <label>통상임금산정기준</label>
+                <span>
+                  <select id="WAGE_CD" name="WAGE_CD" class="dews-ui-dropdownlist basic" data-dews-show-tooltip="true" style="width: 71px;" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+                  <input id="WAGE_DC" name="WAGE_DC" type="text" class="dews-ui-textbox" style="width: 101px;" />
+                </span>
+              </li>
+              <li>
+                <label>통상임금</label>
+                <span>
+                  <input id="numerictextbox7" name="numerictextbox7" type="text" class="dews-ui-numerictextbox basic" data-dews-increase-type="multiple" data-dews-increase-value="1000" data-dews-round="round" />
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <label>월소정근로시간</label>
+                <span>
+                  <input id="numerictextbox6" name="numerictextbox6" type="text" class="dews-ui-numerictextbox basic" data-dews-increase-type="multiple" data-dews-increase-value="1000" data-dews-round="round" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="dews-ui-arcodien" data-dews-arcodien-height="0" data-dews-item-height="0">
+      <ul>
+        <li class="dews-arcodien-item" data-dews-item-title="대상기간급여내역" data-dews-item-height="0" data-dews-item-hide="true">
+          <div class="dews-button-group" style="text-align: right;">
+            <button class="dews-ui-button small">추가</button>
+            <button class="dews-ui-button small">삭제</button>
+          </div>
+          <div id="grid3" class="dews-ui-grid"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+    
+</style>
+
+
+
+<script>
+  dews.ready(function () {
+    var self = this;
+    self.version = self.version || {};
+    self.version.view='1.0';
+
+
+    
+    
+    self.dataSource1 = dews.ui.dataSource('dataSource1', {
+      grid: true,
+      schema: {
+        model: {
+          fields: [
+            { field: 'KOR_NM', editable: false, dataType: 'string' }, 
+            { field: 'EMP_NO', editable: false, dataType: 'string' }, 
+            { field: 'DEPT_NM', editable: false, dataType: 'string' }, 
+            { field: 'REQ_KND_FG', editable: false, dataType: 'string' }
+          ]
+    
+        }
+      },
+      data: []
+    });
+    self.dataSource2 = dews.ui.dataSource('dataSource2', {
+      grid: true,
+      schema: {
+        model: {
+          fields: [
+            { field: 'TERMFG_CD', editable: false, dataType: 'string' }, 
+            { field: 'START_DT', editable: false, dataType: 'string' }, 
+            { field: 'END_DT', editable: false, dataType: 'string' }, 
+            { field: 'DT_CNT', editable: false, dataType: 'string' }, 
+            { field: 'USL_WAGE_AMT', editable: false, dataType: 'string' }
+          ]
+    
+        }
+      },
+      data: []
+    });
+    dews.api.get(dews.url.getApiUrl('CM', 'CommonCodeDtlService', 'common_ci_codeDtl_list'),{
+      async: false,
+      data: {
+          end_dt: '',
+          foreign_yn: '',
+          field_cd_pipe: 'P00520|P02010',
+          module_cd: 'HR',
+          syscode_yn: '',
+          keyword: '',
+          base_yn: ''
+      }
+    }).done(function (data) {
+      var ar_P00520 = new Array();
+      var ar_P02010 = new Array();
+    
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].FIELD_CD == "P00520") { 
+          ar_P00520.push(data[i]); 
+    
+        }
+        else if (data[i].FIELD_CD == "P02010") { 
+          ar_P02010.push(data[i]); 
+    
+        }
+      }
+      self.pipeDataSource1_P00520 = dews.ui.dataSource('pipeDataSource1_P00520',  { data: ar_P00520 });
+      self.pipeDataSource1_P02010 = dews.ui.dataSource('pipeDataSource1_P02010',  { data: ar_P02010 });
+      self.pipeDataSource1 = dews.ui.dataSource('pipeDataSource1', { data: data });
+      
+    });
+    dews.api.get(dews.url.getApiUrl('CM', 'CommonCodeDtlService', 'common_ci_codeDtl_list'),{
+      async: false,
+      data: {
+          end_dt: '',
+          foreign_yn: '',
+          field_cd_pipe: 'S00320',
+          module_cd: 'MA',
+          syscode_yn: '',
+          keyword: '',
+          base_yn: ''
+      }
+    }).done(function (data) {
+      var ar_S00320 = new Array();
+    
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].FIELD_CD == "S00320") { 
+          ar_S00320.push(data[i]); 
+    
+        }
+      }
+      self.pipeDataSource2_S00320 = dews.ui.dataSource('pipeDataSource2_S00320',  { data: ar_S00320 });
+      self.pipeDataSource2 = dews.ui.dataSource('pipeDataSource2', { data: data });
+      
+    });
+    
+    
+    dews.ui.mainbuttons.information.disable(true);
+    dews.ui.mainbuttons.localize.disable(true);
+    dews.ui.mainbuttons.approval.hide();
+    dews.ui.mainbuttons.etnapproval.hide();
+    dews.ui.mainbuttons.add.click(/*1a3067fb-7e4f-4c2c-a900-7f6dfa9d490d*/ function () {
+    
+        self.grid2.addRow();
+    
+    }
+    );
+    dews.ui.mainbuttons.search.click(/*3dceaecc-319c-43e3-a6bb-327bcace4a48*/ function () {
+    
+    }
+    );
+    dews.ui.mainbuttons.delete.click(/*1703f0ef-4051-4ffd-962e-11990ff25225*/ function () {
+    
+        self.grid2.removeRow(self.grid2.select());
+    
+    }
+    );
+    dews.ui.mainbuttons.save.click(/*fe04b2fe-5748-44f6-9628-3e179f56225b*/ function () {
+    
+        dews.confirm('수정된 데이터를 저장하시겠습니까 ? ', 'question').yes(function () {
+        });
+    }
+    );
+    dews.ui.grid(self.$grid2, {
+      dataSource: self.dataSource1,
+      height: 691,
+      sortable: false,
+      autoBind: false,
+      copyMode: 'cell',
+      columns: [
+        {
+          field: 'WRT_DT',
+          title: '등록일',
+          width: 60
+        },
+        {
+          field: 'CLOSE_YN',
+          title: '마감여부',
+          width: 60
+        },
+        {
+          field: 'REQ_KND_FG',
+          title: '신청종류',
+          width: 60,
+          align: 'left'
+        },
+        {
+          field: 'EMP_NO',
+          title: '사원번호',
+          width: 60,
+          align: 'left',
+          editor: {
+            type: 'codepicker',
+            helpCode: 'H_HR_EMP_MST_S02',
+            codeField: 'EMP_NO',
+            textField: 'KOR_NM',
+            helpTitle: '사원도움창',
+            helpSize: 'big'
+          }
+        },
+        {
+          field: 'KOR_NM',
+          title: '한글명',
+          width: 60,
+          align: 'left'
+        },
+        {
+          field: 'DEPT_NM',
+          title: '부서명',
+          width: 90,
+          align: 'left',
+          visible: false
+        }
+      ],
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      }
+    });
+    dews.ui.grid(self.$grid3, {
+      dataSource: self.dataSource2,
+      sortable: false,
+      autoBind: false,
+      checkable: false,
+      copyMode: 'cell',
+      columns: [
+        {
+          field: 'TERMFG_CD',
+          title: '기간구분',
+          width: 80,
+          visible: false,
+          editor: {
+            type: 'dropDown',
+            dataSource: self.pipeDataSource1_P00520,
+            dataValueField: 'SYSDEF_CD',
+            dataTextField: 'SYSDEF_NM'
+          }
+        },
+        {
+          field: 'START_DT',
+          title: '시작일',
+          width: 80,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'END_DT',
+          title: '종료일',
+          width: 80,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'dropDown',
+            dataSource: self.pipeDataSource2_S00320,
+            dataValueField: 'SYSDEF_CD',
+            dataTextField: 'SYSDEF_NM'
+          }
+        },
+        {
+          field: 'DT_CNT',
+          title: '일수',
+          width: 80,
+          align: 'right',
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'dropDown',
+            dataSource: self.pipeDataSource1_P02010,
+            dataValueField: 'SYSDEF_CD',
+            dataTextField: 'SYSDEF_NM'
+          }
+        },
+        {
+          field: 'PAY_YN',
+          title: '급여지급여부',
+          width: 80,
+          editor: {
+            type: 'dropDown',
+            dataSource: self.pipeDataSource2,
+            dataValueField: 'SYSDEF_CD',
+            dataTextField: 'SYSDEF_NM'
+          }
+        },
+        {
+          field: 'USL_WAGE_AMT',
+          title: '통상임금지급액',
+          width: 100,
+          align: 'right',
+          formats: {
+            type: 'number',
+            format: 'MA00003',
+            predefined: true
+          },
+          editor: {
+            type: 'number'
+          }
+        }
+      ],
+      fixed: {
+        colCount: 0,
+        rightColCount: 0
+      }
+    });
+    
+    
+    self.grid2.setDetail(self.grid3);
+    
+    
+    /*d2692eed-91c6-4644-b7ca-3eed2f04ec7b*/ 
+    //# sourceURL=PAMMPM0200.js
+    
+    
+
+  
+  });
+
+</script>
