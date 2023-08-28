@@ -1,6 +1,6 @@
-<!--##ec60ae5a-08e1-4186-9039-6769008fc438##-->
+<!--##8819c894-0906-4b06-afdb-641382797a12##-->
 <!--##PAMMPM00200##-->
-<!--##XQ0f9gPVCx//mYJMQfxbFKUYqhibj2M4ijhRpPbRHBQ=##-->
+<!--##mBW9XtPUxwBzVwRTWgS5f1KkKsJeTvjii5UKlSJ8E9M=##-->
 <!--
   DEWS UI/UX IDE - Build Result - v1.5
   # PageID: PAMMPM00200
@@ -16,19 +16,19 @@
     <li>
       <label class="dews-ui-multilingual">등록일</label>
       <span>
-        <span id="monthperiodpicker1" class="dews-ui-periodpicker required"></span>
+        <span id="WRT_DT" class="dews-ui-periodpicker required"></span>
       </span>
     </li>
     <li>
       <label class="dews-ui-multilingual">신청종류</label>
       <span>
-        <select id="dropdownlist1" name="dropdownlist1" class="dews-ui-dropdownlist basic" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+        <select id="REQ_KND_FG" name="REQ_KND_FG" class="dews-ui-dropdownlist basic" data-dews-value-field="SYSDEF_CD" data-dews-text-field="SYSDEF_NM" data-dews-show-tooltip="true" data-dews-option-label-value="" data-dews-option-label-text="" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
       </span>
     </li>
     <li>
       <label class="dews-ui-multilingual">검색어</label>
       <span>
-        <input id="textbox1" name="textbox1" type="text" class="dews-ui-textbox basic" />
+        <input id="KEYWORD" name="KEYWORD" type="text" class="dews-ui-textbox basic" />
       </span>
     </li>
   </ul>
@@ -39,16 +39,16 @@
   <button class="dews-ui-button">마감취소</button>
 </div>
 <div class="dews-ui-container-panel">
-  <div class="dews-container-item" data-dews-position="left" data-dews-width="1013px">
-    <div id="grid2" class="dews-ui-grid"></div>
+  <div class="dews-container-item" data-dews-position="left" data-dews-width="493px">
+    <div id="mtnityidnfMaster_grid" class="dews-ui-grid"></div>
   </div>
-  <div class="dews-container-item" data-dews-position="normal" data-dews-width="600px">
-    <div class="dews-ui-form-panel" data-dews-item-width="723">
+  <div id="trgtpInfoPanel" class="dews-container-item" data-dews-position="normal" data-dews-width="600px">
+    <div id="topReqPanel" class="dews-ui-form-panel" data-dews-item-width="723">
       <ul>
         <li>
           <label>신청번호</label>
           <span>
-            <input id="REQNO" name="REQNO" type="text" class="dews-ui-textbox" readonly="readonly" style="width: 132px;" />
+            <input id="DOC_NO" name="DOC_NO" type="text" data-dews-bind-column="DOC_NO" class="dews-ui-textbox" readonly="readonly" style="width: 132px;" />
             <button id="REQNO_B" class="dews-ui-button">?</button>
           </span>
         </li>
@@ -57,13 +57,13 @@
         <li>
           <label>등록일</label>
           <span>
-            <input type="text" id="datepicker2" name="datepicker2" class="dews-ui-datepicker required" style="text-align: right;" />
+            <input type="text" id="WRT_DT_datepicker" name="WRT_DT_datepicker" class="dews-ui-datepicker required" data-dews-bind-column="WRT_DT" style="text-align: left;" />
           </span>
         </li>
         <li>
           <label>신고일</label>
           <span>
-            <input type="text" id="datepicker3" name="datepicker3" class="dews-ui-datepicker basic" />
+            <input type="text" id="DECL_DT_datepicker" name="DECL_DT_datepicker" class="dews-ui-datepicker basic" data-dews-bind-column="DECL_DT" />
           </span>
         </li>
       </ul>
@@ -71,18 +71,18 @@
     <div class="dews-ui-arcodien" data-dews-arcodien-height="0" data-dews-item-height="0">
       <ul>
         <li class="dews-arcodien-item" data-dews-item-title="사업장정보" data-dews-item-height="0" data-dews-item-open="true">
-          <div class="dews-ui-form-panel">
+          <div id="bizareaInfoPanel" class="dews-ui-form-panel">
             <ul>
               <li>
                 <label>사업장관리번호</label>
                 <span>
-                  <input id="textbox10" name="textbox10" type="text" class="dews-ui-textbox basic" />
+                  <input id="BIZAREA_MNG_NO" name="BIZAREA_MNG_NO" type="text" class="dews-ui-textbox basic" />
                 </span>
               </li>
               <li>
                 <label>사업장</label>
                 <span>
-                  <input type="text" id="textbox11" name="textbox11" class="dews-ui-codepicker basic" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-use-keyword="false" />
+                  <input type="text" id="BIZAREA_CD" name="BIZAREA_CD" class="dews-ui-codepicker basic" data-dews-help-code="H_MA_BIZAREA_MST_S" data-dews-code-field="BIZAREA_CD" data-dews-text-field="BIZAREA_NM" data-dews-help-title="사업장 도움창" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-use-keyword="false" />
                 </span>
               </li>
             </ul>
@@ -99,7 +99,7 @@
               <li class="col-2">
                 <label>상세주소</label>
                 <span>
-                  <input id="textbox12" name="textbox12" type="text" class="dews-ui-textbox basic" />
+                  <input id="DTL_ADDR" name="DTL_ADDR" type="text" class="dews-ui-textbox basic" />
                 </span>
               </li>
             </ul>
@@ -107,16 +107,16 @@
               <li>
                 <label>우선지원대상기업</label>
                 <span>
-                  <select id="radiogroup5" class="dews-ui-radio-group">
-                    <option class="dews-ui-multilingual" value="">해당</option>
-                    <option class="dews-ui-multilingual" value="">비해당</option>
+                  <select id="PSPTCOM_YN" class="dews-ui-radio-group">
+                    <option class="dews-ui-multilingual" value="1">해당</option>
+                    <option class="dews-ui-multilingual" value="2">비해당</option>
                   </select>
                 </span>
               </li>
               <li>
                 <label>담당자</label>
                 <span>
-                  <input type="text" id="codepicker3" name="codepicker3" class="dews-ui-codepicker basic" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-ajax="true" />
+                  <input type="text" id="RSPT_EMP_NO" name="RSPT_EMP_NO" class="dews-ui-codepicker basic" data-dews-help-code="H_HR_EMP_MST_S11" data-dews-code-field="EMP_NO" data-dews-text-field="KOR_NM" data-dews-help-title="사원도움창" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-ajax="true" />
                 </span>
               </li>
             </ul>
@@ -124,13 +124,13 @@
               <li>
                 <label>전화번호</label>
                 <span>
-                  <input id="textbox13" name="textbox13" type="text" class="dews-ui-textbox basic" />
+                  <input id="RSPT_TEL_NO" name="RSPT_TEL_NO" type="text" class="dews-ui-textbox basic" />
                 </span>
               </li>
               <li>
                 <label>이메일</label>
                 <span>
-                  <input id="textbox14" name="textbox14" type="text" class="dews-ui-textbox basic" />
+                  <input id="RSPT_EMAIL_NM" name="RSPT_EMAIL_NM" type="text" class="dews-ui-textbox basic" />
                 </span>
               </li>
             </ul>
@@ -141,12 +141,12 @@
     <div class="dews-ui-arcodien" data-dews-arcodien-height="0" data-dews-item-height="0">
       <ul>
         <li class="dews-arcodien-item" data-dews-item-title="대상자정보" data-dews-item-height="0" data-dews-item-open="true">
-          <div class="dews-ui-form-panel">
+          <div id="trgtpInfoPanel" class="dews-ui-form-panel">
             <ul>
               <li class="col-2">
                 <label>신청종류</label>
                 <span>
-                  <select id="radiogroup6" class="dews-ui-radio-group">
+                  <select id="REQ_KND_FG_radioBtn" class="dews-ui-radio-group">
                     <option class="dews-ui-multilingual" value="">출산전후휴가</option>
                     <option class="dews-ui-multilingual" value="">유산,사산휴가</option>
                   </select>
@@ -157,13 +157,13 @@
               <li>
                 <label>사원</label>
                 <span>
-                  <input type="text" id="codepicker4" name="codepicker4" class="dews-ui-codepicker basic" readonly="readonly" data-dews-help-custom="false" data-dews-help-size="medium" data-dews-ajax="true" />
+                  <input id="KOR_NM" name="KOR_NM" type="text" class="dews-ui-textbox basic" readonly="readonly" />
                 </span>
               </li>
               <li>
-                <label>주민등록번호</label>
+                <label>주민번호</label>
                 <span>
-                  <input id="textbox15" name="textbox15" type="text" class="dews-ui-textbox basic" readonly="readonly" />
+                  <input id="RES_NO" name="RES_NO" type="text" class="dews-ui-maskedtextbox basic" data-dews-mask="000000-000000" readonly="readonly" data-dews-secure-mask="-,0,7" />
                 </span>
               </li>
             </ul>
@@ -171,15 +171,15 @@
               <li>
                 <label>출산(예정)일</label>
                 <span>
-                  <input type="text" id="datepicker4" name="datepicker4" class="dews-ui-datepicker basic" />
+                  <input type="text" id="CHLDBRTH_DT" name="CHLDBRTH_DT" class="dews-ui-datepicker basic" />
                 </span>
               </li>
               <li>
                 <label>분할사용여부</label>
                 <span>
-                  <select id="radiogroup7" class="dews-ui-radio-group">
-                    <option class="dews-ui-multilingual" value="">예</option>
-                    <option class="dews-ui-multilingual" value="">아니오</option>
+                  <select id="DIVD_YN" class="dews-ui-radio-group">
+                    <option class="dews-ui-multilingual" value="Y">예</option>
+                    <option class="dews-ui-multilingual" value="N">아니오</option>
                   </select>
                 </span>
               </li>
@@ -188,15 +188,15 @@
               <li>
                 <label>임신기간(유산,사산)</label>
                 <span>
-                  <select id="dropdownlist5" name="dropdownlist5" class="dews-ui-dropdownlist basic" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
+                  <select id="TERM_CD" name="TERM_CD" class="dews-ui-dropdownlist basic" data-dews-value-field="SYSDEF_CD" data-dews-text-field="SYSDEF_NM" data-dews-show-tooltip="true" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
                 </span>
               </li>
               <li>
                 <label>다태아여부</label>
                 <span>
-                  <select id="radiogroup8" class="dews-ui-radio-group">
-                    <option class="dews-ui-multilingual" value="">예</option>
-                    <option class="dews-ui-multilingual" value="">아니오</option>
+                  <select id="MLTPPRGN_YN" class="dews-ui-radio-group">
+                    <option class="dews-ui-multilingual" value="Y">예</option>
+                    <option class="dews-ui-multilingual" value="N">아니오</option>
                   </select>
                 </span>
               </li>
@@ -205,14 +205,13 @@
               <li>
                 <label>통상임금산정기준</label>
                 <span>
-                  <select id="WAGE_CD" name="WAGE_CD" class="dews-ui-dropdownlist basic" data-dews-show-tooltip="true" style="width: 71px;" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
-                  <input id="WAGE_DC" name="WAGE_DC" type="text" class="dews-ui-textbox" style="width: 101px;" />
+                  <select id="USL_WAGE_CD" name="USL_WAGE_CD" class="dews-ui-dropdownlist basic" data-dews-value-field="SYSDEF_CD" data-dews-text-field="SYSDEF_NM" data-dews-show-tooltip="true" style="width: 71px;" data-dews-show-value-tooltip="true" data-dews-use-numkey="false"></select>
                 </span>
               </li>
               <li>
                 <label>통상임금</label>
                 <span>
-                  <input id="numerictextbox7" name="numerictextbox7" type="text" class="dews-ui-numerictextbox basic" data-dews-increase-type="multiple" data-dews-increase-value="1000" data-dews-round="round" />
+                  <input id="USL_WAGE_AMT" name="USL_WAGE_AMT" type="text" class="dews-ui-numerictextbox basic" data-dews-increase-type="multiple" data-dews-increase-value="1000" data-dews-round="round" />
                 </span>
               </li>
             </ul>
@@ -220,7 +219,13 @@
               <li>
                 <label>월소정근로시간</label>
                 <span>
-                  <input id="numerictextbox6" name="numerictextbox6" type="text" class="dews-ui-numerictextbox basic" data-dews-increase-type="multiple" data-dews-increase-value="1000" data-dews-round="round" />
+                  <input id="MM_FIXED_LABORTM_DY" name="MM_FIXED_LABORTM_DY" type="text" class="dews-ui-numerictextbox basic" data-dews-increase-type="multiple" data-dews-increase-value="1000" data-dews-round="round" />
+                </span>
+              </li>
+              <li style="display: none;">
+                <label>라벨</label>
+                <span>
+                  <input id="EMP_NO" name="EMP_NO" type="text" data-dews-bind-column="EMP_NO" class="dews-ui-textbox basic" />
                 </span>
               </li>
             </ul>
@@ -230,12 +235,12 @@
     </div>
     <div class="dews-ui-arcodien" data-dews-arcodien-height="0" data-dews-item-height="0">
       <ul>
-        <li class="dews-arcodien-item" data-dews-item-title="대상기간급여내역" data-dews-item-height="0" data-dews-item-hide="true">
+        <li class="dews-arcodien-item" data-dews-item-title="대상기간급여내역" data-dews-item-height="0" data-dews-item-open="true">
           <div class="dews-button-group" style="text-align: right;">
             <button class="dews-ui-button small">추가</button>
             <button class="dews-ui-button small">삭제</button>
           </div>
-          <div id="grid3" class="dews-ui-grid"></div>
+          <div id="MtnityidnfDtl_grid" class="dews-ui-grid"></div>
         </li>
       </ul>
     </div>
@@ -257,36 +262,117 @@
 
     
     
-    self.dataSource1 = dews.ui.dataSource('dataSource1', {
+    self.mtnityidnfMaster_ds = dews.ui.dataSource('mtnityidnfMaster_ds', {
       grid: true,
+      transport: {
+        read: {
+          type: 'post',
+          url: dews.url.getApiUrl('HR', 'PAMMPM00200_Service', 'Pammpm00200_selectAllData'),
+          data: function () {
+            return {
+              wrtDt_start: self.WRT_DT.getStartDate(),
+              wrtDt_end: self.WRT_DT.getEndDate(),
+              keyword: self.KEYWORD.text(),
+              req_knd_fg: self.REQ_KND_FG.value()
+            };
+          }
+        }
+      },
       schema: {
         model: {
           fields: [
-            { field: 'KOR_NM', editable: false, dataType: 'string' }, 
+            { field: '_uid', editable: false, dataType: 'string' }, 
+            { field: 'COMPANY_CD', editable: false, dataType: 'string' }, 
             { field: 'EMP_NO', editable: false, dataType: 'string' }, 
-            { field: 'DEPT_NM', editable: false, dataType: 'string' }, 
-            { field: 'REQ_KND_FG', editable: false, dataType: 'string' }
+            { field: 'KEYWORD', editable: false, dataType: 'string' }, 
+            { field: 'DOC_NO', editable: false, dataType: 'string' }, 
+            { field: 'DECL_DT', editable: false, dataType: 'string' }, 
+            { field: 'WRT_DT', editable: false, dataType: 'string' }, 
+            { field: 'WRTDT_START', editable: false, dataType: 'string' }, 
+            { field: 'WRTDT_END', editable: false, dataType: 'string' }, 
+            { field: 'CLOSE_YN', editable: false, dataType: 'string' }, 
+            { field: 'REQ_KND_FG', editable: false, dataType: 'string' }, 
+            { field: 'KOR_NM', editable: false, dataType: 'string' }, 
+            { field: 'BIZAREA_MNG_NO', editable: false, dataType: 'string' }, 
+            { field: 'BIZAREA_NM', editable: false, dataType: 'string' }, 
+            { field: 'POST_NO', editable: false, dataType: 'string' }, 
+            { field: 'ADDR_TP', editable: false, dataType: 'string' }, 
+            { field: 'BASE_ADDR', editable: false, dataType: 'string' }, 
+            { field: 'DTL_ADDR', editable: false, dataType: 'string' }, 
+            { field: 'PSPTCOM_YN', editable: false, dataType: 'string' }, 
+            { field: 'RSPT_EMP_NO', editable: false, dataType: 'string' }, 
+            { field: 'RSPT_TEL_NO', editable: false, dataType: 'string' }, 
+            { field: 'RSPT_EMAIL_NM', editable: false, dataType: 'string' }, 
+            { field: 'RES_NO', editable: false, dataType: 'string' }, 
+            { field: 'CHLDBRTH_DT', editable: false, dataType: 'string' }, 
+            { field: 'DIVD_YN', editable: false, dataType: 'string' }, 
+            { field: 'TERM_CD', editable: false, dataType: 'string' }, 
+            { field: 'MLTPPRGN_YN', editable: false, dataType: 'string' }, 
+            { field: 'USL_WAGE_CD', editable: false, dataType: 'string' }, 
+            { field: 'USL_WAGE_AMT', editable: false, dataType: 'number' }, 
+            { field: 'MM_FIXED_LABORTM_DY', editable: false, dataType: 'number' }, 
+            { field: 'BIZAREA_CD', editable: false, dataType: 'number' }
           ]
     
         }
-      },
-      data: []
+      }
     });
-    self.dataSource2 = dews.ui.dataSource('dataSource2', {
+    self.MtnityidnfDtl_ds = dews.ui.dataSource('MtnityidnfDtl_ds', {
       grid: true,
+      transport: {
+        read: {
+          type: 'post',
+          url: 'http://localhost:8090/api/HR/PAMMPM00200_Service/Pammpm00200_selectHrMtnityidnfDtl',
+          data: function () {
+            return {
+              doc_no: self.DOC_NO.text(),
+              emp_no: self.EMP_NO.text()
+            };
+          }
+        }
+      },
       schema: {
         model: {
           fields: [
-            { field: 'TERMFG_CD', editable: false, dataType: 'string' }, 
+            { field: '_uid', editable: false, dataType: 'string' }, 
+            { field: 'COMPANY_CD', editable: false, dataType: 'string' }, 
+            { field: 'EMP_NO', editable: false, dataType: 'string' }, 
+            { field: 'KEYWORD', editable: false, dataType: 'string' }, 
+            { field: 'DOC_NO', editable: false, dataType: 'string' }, 
+            { field: 'DECL_DT', editable: false, dataType: 'string' }, 
+            { field: 'WRT_DT', editable: false, dataType: 'string' }, 
+            { field: 'WRTDT_START', editable: false, dataType: 'string' }, 
+            { field: 'WRTDT_END', editable: false, dataType: 'string' }, 
+            { field: 'CLOSE_YN', editable: false, dataType: 'string' }, 
+            { field: 'REQ_KND_FG', editable: false, dataType: 'string' }, 
+            { field: 'KOR_NM', editable: false, dataType: 'string' }, 
+            { field: 'BIZAREA_MNG_NO', editable: false, dataType: 'string' }, 
+            { field: 'BIZAREA_NM', editable: false, dataType: 'string' }, 
+            { field: 'POST_NO', editable: false, dataType: 'string' }, 
+            { field: 'ADDR_TP', editable: false, dataType: 'string' }, 
+            { field: 'BASE_ADDR', editable: false, dataType: 'string' }, 
+            { field: 'DTL_ADDR', editable: false, dataType: 'string' }, 
+            { field: 'PSPTCOM_YN', editable: false, dataType: 'string' }, 
+            { field: 'RSPT_EMP_NO', editable: false, dataType: 'string' }, 
+            { field: 'RSPT_TEL_NO', editable: false, dataType: 'string' }, 
+            { field: 'RSPT_EMAIL_NM', editable: false, dataType: 'string' }, 
+            { field: 'TRGTP_RES_NO', editable: false, dataType: 'string' }, 
+            { field: 'CHLDBRTH_DT', editable: false, dataType: 'string' }, 
+            { field: 'DIVD_YN', editable: false, dataType: 'string' }, 
+            { field: 'TERM_CD', editable: false, dataType: 'string' }, 
+            { field: 'MLTPPRGN_YN', editable: false, dataType: 'string' }, 
+            { field: 'USL_WAGE_CD', editable: false, dataType: 'string' }, 
+            { field: 'PAY_AMT', editable: false, dataType: 'number' }, 
+            { field: 'MM_FIXED_LABORTM_DY', editable: false, dataType: 'number' }, 
+            { field: 'BIZAREA_CD', editable: false, dataType: 'number' }, 
+            { field: 'BWRK_DY', editable: false, dataType: 'number' }, 
+            { field: 'PAY_YN', editable: false, dataType: 'string' }, 
             { field: 'START_DT', editable: false, dataType: 'string' }, 
-            { field: 'END_DT', editable: false, dataType: 'string' }, 
-            { field: 'DT_CNT', editable: false, dataType: 'string' }, 
-            { field: 'USL_WAGE_AMT', editable: false, dataType: 'string' }
+            { field: 'END_DT', editable: false, dataType: 'string' }
           ]
     
         }
-      },
-      data: []
+      }
     });
     dews.api.get(dews.url.getApiUrl('CM', 'CommonCodeDtlService', 'common_ci_codeDtl_list'),{
       async: false,
@@ -342,6 +428,96 @@
       self.pipeDataSource2 = dews.ui.dataSource('pipeDataSource2', { data: data });
       
     });
+    dews.api.get(dews.url.getApiUrl('CM', 'CommonCodeDtlService', 'common_codeDtl_list'),{
+      async: false,
+      data: {
+          dept_cd: '',
+          base_dt: '',
+          end_dt: '',
+          crud_fg: '',
+          menu_cd: '',
+          foreign_yn: '',
+          up_sysdef_cd: '',
+          field_cd_pipe: 'P03510',
+          module_cd: 'HR',
+          company_cd: '',
+          syscode_yn: '',
+          keyword: '',
+          base_yn: ''
+      }
+    }).done(function (data) {
+      var ar_P03510 = new Array();
+    
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].FIELD_CD == "P03510") { 
+          ar_P03510.push(data[i]); 
+    
+        }
+      }
+      self.HR_P03510_DS_P03510 = dews.ui.dataSource('HR_P03510_DS_P03510',  { data: ar_P03510 });
+      self.HR_P03510_DS = dews.ui.dataSource('HR_P03510_DS', { data: data });
+      
+    });
+    dews.api.get(dews.url.getApiUrl('CM', 'CommonCodeDtlService', 'common_codeDtl_list'),{
+      async: false,
+      data: {
+          dept_cd: '',
+          base_dt: '',
+          end_dt: '',
+          crud_fg: '',
+          menu_cd: '',
+          foreign_yn: '',
+          up_sysdef_cd: '',
+          field_cd_pipe: 'P03500',
+          module_cd: 'HR',
+          company_cd: '',
+          syscode_yn: '',
+          keyword: '',
+          base_yn: ''
+      }
+    }).done(function (data) {
+      var ar_P03500 = new Array();
+    
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].FIELD_CD == "P03500") { 
+          ar_P03500.push(data[i]); 
+    
+        }
+      }
+      self.HR_P03500_DS_P03500 = dews.ui.dataSource('HR_P03500_DS_P03500',  { data: ar_P03500 });
+      self.HR_P03500_DS = dews.ui.dataSource('HR_P03500_DS', { data: data });
+      
+    });
+    dews.api.get(dews.url.getApiUrl('CM', 'CommonCodeDtlService', 'common_codeDtl_list'),{
+      async: false,
+      data: {
+          dept_cd: '',
+          base_dt: '',
+          end_dt: '',
+          crud_fg: '',
+          menu_cd: '',
+          foreign_yn: '',
+          up_sysdef_cd: '',
+          field_cd_pipe: 'P03520',
+          module_cd: 'HR',
+          company_cd: '',
+          syscode_yn: '',
+          keyword: '',
+          base_yn: ''
+      }
+    }).done(function (data) {
+      var ar_P03520 = new Array();
+    
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].FIELD_CD == "P03520") { 
+          ar_P03520.push(data[i]); 
+    
+        }
+      }
+      self.dataSourceP03520_P03520 = dews.ui.dataSource('dataSourceP03520_P03520',  { data: ar_P03520 });
+      self.dataSourceP03520 = dews.ui.dataSource('dataSourceP03520', { data: data });
+      
+    });
     
     
     dews.ui.mainbuttons.information.disable(true);
@@ -355,7 +531,8 @@
     }
     );
     dews.ui.mainbuttons.search.click(/*3dceaecc-319c-43e3-a6bb-327bcace4a48*/ function () {
-    
+        console.log("여기요낭ㅇㅇㅇㅇㅇㅇ");
+        SearchData();
     }
     );
     dews.ui.mainbuttons.delete.click(/*1703f0ef-4051-4ffd-962e-11990ff25225*/ function () {
@@ -370,17 +547,75 @@
         });
     }
     );
-    dews.ui.grid(self.$grid2, {
-      dataSource: self.dataSource1,
+    self.REQ_KND_FG.setDataSource(self.HR_P03500_DS_P03500);
+    dews.ui.grid(self.$mtnityidnfMaster_grid, {
+      dataSource: self.mtnityidnfMaster_ds,
       height: 691,
       sortable: false,
-      autoBind: false,
       copyMode: 'cell',
       columns: [
         {
+          field: '_uid',
+          title: '_uid',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'COMPANY_CD',
+          title: '회사코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'KEYWORD',
+          title: '검색어',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'DOC_NO',
+          title: '문서번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'DECL_DT',
+          title: '신고일',
+          width: 80,
+          visible: false,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
           field: 'WRT_DT',
-          title: '등록일',
-          width: 60
+          title: '작성일',
+          width: 80,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'WRTDT_START',
+          title: '시작일',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'WRTDT_END',
+          title: '종료일',
+          width: 60,
+          visible: false
         },
         {
           field: 'CLOSE_YN',
@@ -389,66 +624,289 @@
         },
         {
           field: 'REQ_KND_FG',
-          title: '신청종류',
-          width: 60,
-          align: 'left'
+          title: '신청종류구분',
+          width: 60
         },
         {
           field: 'EMP_NO',
           title: '사원번호',
-          width: 60,
-          align: 'left',
-          editor: {
-            type: 'codepicker',
-            helpCode: 'H_HR_EMP_MST_S02',
-            codeField: 'EMP_NO',
-            textField: 'KOR_NM',
-            helpTitle: '사원도움창',
-            helpSize: 'big'
-          }
+          width: 60
         },
         {
           field: 'KOR_NM',
           title: '한글명',
-          width: 60,
+          width: 90,
           align: 'left'
         },
         {
-          field: 'DEPT_NM',
-          title: '부서명',
+          field: 'BIZAREA_MNG_NO',
+          title: '사업장관리번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'BIZAREA_NM',
+          title: '사업장명',
           width: 90,
           align: 'left',
+          visible: false
+        },
+        {
+          field: 'POST_NO',
+          title: '우편번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'ADDR_TP',
+          title: '주소유형',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'BASE_ADDR',
+          title: '기본주소',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'DTL_ADDR',
+          title: '상세주소',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'PSPTCOM_YN',
+          title: '우선지원대상기업여부',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'RSPT_EMP_NO',
+          title: '담당사원번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'RSPT_TEL_NO',
+          title: '담당전화번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'RSPT_EMAIL_NM',
+          title: '담당이메일명',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'RES_NO',
+          title: '주민등록번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'CHLDBRTH_DT',
+          title: '출산일',
+          width: 80,
+          visible: false,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'DIVD_YN',
+          title: '분할여부',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'TERM_CD',
+          title: '기간코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'MLTPPRGN_YN',
+          title: '다태아여부',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'USL_WAGE_CD',
+          title: '통상임금코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'USL_WAGE_AMT',
+          title: '통상임금금액',
+          width: 100,
+          align: 'right',
+          visible: false,
+          formats: {
+            type: 'number',
+            format: 'MA00003',
+            predefined: true
+          },
+          editor: {
+            type: 'number'
+          }
+        },
+        {
+          field: 'MM_FIXED_LABORTM_DY',
+          title: '월소정근로시간일수',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'BIZAREA_CD',
+          title: '사업장코드',
+          width: 80,
           visible: false
         }
       ],
       fixed: {
         colCount: 0,
         rightColCount: 0
-      }
+      },
+      change: /*9571f2bb-f813-40e1-831b-d463d2bedfc9*/ function (e) {
+            self.mtnityidnfMaster_grid.bindPanel(self.topReqPanel);
+            self.mtnityidnfMaster_grid.bindPanel(self.bizareaInfoPanel);
+            self.mtnityidnfMaster_grid.bindPanel(self.trgtpInfoPanel);
+        }
+    ,
+      changing: /*a206fbe1-fb4f-4d81-a3a5-d75f0d387c33*/ function (e) {
+    
+        }
+    ,
+      dataBound: /*2e270946-ffe0-4dd5-8494-6fa99a0d35ea*/ function (e) {
+            dews.ui.loading.hide();
+            // console.log("data Bound");
+            self.mtnityidnfMaster_grid.bindPanel(self.topReqPanel);
+            self.mtnityidnfMaster_grid.bindPanel(self.bizareaInfoPanel);
+            self.mtnityidnfMaster_grid.bindPanel(self.trgtpInfoPanel);
+        }
+    
     });
-    dews.ui.grid(self.$grid3, {
-      dataSource: self.dataSource2,
+    self.BIZAREA_CD.setHelpParams(function () {
+      return {
+        company_cd: '',
+        auth_bizarea: '',
+        auth_pc: '',
+        flag_cd: ''
+      };
+    });
+    self.RSPT_EMP_NO.setHelpParams(function () {
+      return {
+        cd_bizareas: '',
+        cd_depts: '',
+        tp_emps: '',
+        empy_tp_cd: '',
+        hlof_fg_cd: '',
+        posi_cds: '',
+        pstn_cds: '',
+        slst_cds: '',
+        odty_cds: '',
+        duty_cds: '',
+        ogrp_cds: '',
+        jknd_cds: '',
+        cd_duty_ranks: '',
+        cd_duty_steps: '',
+        cd_duty_resps: '',
+        cd_duty_works: '',
+        cd_duty_types: '',
+        dt_enter_from: '',
+        dt_enter_to: '',
+        dt_retire_from: '',
+        dt_retire_to: '',
+        cd_pcs: '',
+        cd_range_emp: ''
+      };
+    });
+    self.TERM_CD.setDataSource(self.HR_P03510_DS_P03510);
+    self.USL_WAGE_CD.setDataSource(self.dataSourceP03520_P03520);
+    self.USL_WAGE_CD.on('dataBound', /*10d57d7e-17d3-444b-a466-fd3812975f2a*/ function (e) {
+    
+    });
+    dews.ui.grid(self.$MtnityidnfDtl_grid, {
+      dataSource: self.MtnityidnfDtl_ds,
       sortable: false,
       autoBind: false,
       checkable: false,
       copyMode: 'cell',
       columns: [
         {
-          field: 'TERMFG_CD',
-          title: '기간구분',
+          field: '_uid',
+          title: '_uid',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'COMPANY_CD',
+          title: '회사코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'EMP_NO',
+          title: '사원번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'KEYWORD',
+          title: '검색어',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'DOC_NO',
+          title: '문서번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'DECL_DT',
+          title: '신고일',
           width: 80,
           visible: false,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
           editor: {
-            type: 'dropDown',
-            dataSource: self.pipeDataSource1_P00520,
-            dataValueField: 'SYSDEF_CD',
-            dataTextField: 'SYSDEF_NM'
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          }
+        },
+        {
+          field: 'WRT_DT',
+          title: '작성일',
+          width: 80,
+          visible: false,
+          formats: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
+          },
+          editor: {
+            type: 'date',
+            format: 'yyyy-MM-dd'
           }
         },
         {
           field: 'START_DT',
           title: '시작일',
-          width: 80,
+          width: 60,
           formats: {
             type: 'date',
             format: 'yyyy-MM-dd'
@@ -461,48 +919,155 @@
         {
           field: 'END_DT',
           title: '종료일',
-          width: 80,
+          width: 60,
           formats: {
             type: 'date',
             format: 'yyyy-MM-dd'
           },
           editor: {
-            type: 'dropDown',
-            dataSource: self.pipeDataSource2_S00320,
-            dataValueField: 'SYSDEF_CD',
-            dataTextField: 'SYSDEF_NM'
+            type: 'date',
+            format: 'yyyy-MM-dd'
           }
         },
         {
-          field: 'DT_CNT',
-          title: '일수',
+          field: 'BWRK_DY',
+          title: '근무일수'
+        },
+        {
+          field: 'CLOSE_YN',
+          title: '마감여부',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'REQ_KND_FG',
+          title: '신청종류구분',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'KOR_NM',
+          title: '한글명',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'BIZAREA_MNG_NO',
+          title: '사업장관리번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'BIZAREA_NM',
+          title: '사업장명',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'POST_NO',
+          title: '우편번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'ADDR_TP',
+          title: '주소유형',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'BASE_ADDR',
+          title: '기본주소',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'DTL_ADDR',
+          title: '상세주소',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'PSPTCOM_YN',
+          title: '우선지원대상기업여부',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'RSPT_EMP_NO',
+          title: '담당사원번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'RSPT_TEL_NO',
+          title: '담당전화번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'RSPT_EMAIL_NM',
+          title: '담당이메일명',
+          width: 90,
+          align: 'left',
+          visible: false
+        },
+        {
+          field: 'TRGTP_RES_NO',
+          title: '대상자주민등록번호',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'CHLDBRTH_DT',
+          title: '출산일',
           width: 80,
-          align: 'right',
+          visible: false,
           formats: {
             type: 'date',
             format: 'yyyy-MM-dd'
           },
           editor: {
-            type: 'dropDown',
-            dataSource: self.pipeDataSource1_P02010,
-            dataValueField: 'SYSDEF_CD',
-            dataTextField: 'SYSDEF_NM'
+            type: 'date',
+            format: 'yyyy-MM-dd'
           }
+        },
+        {
+          field: 'DIVD_YN',
+          title: '분할여부',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'TERM_CD',
+          title: '기간코드',
+          width: 80,
+          visible: false
+        },
+        {
+          field: 'MLTPPRGN_YN',
+          title: '다태아여부',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'USL_WAGE_CD',
+          title: '통상임금코드',
+          width: 80,
+          visible: false
         },
         {
           field: 'PAY_YN',
-          title: '급여지급여부',
-          width: 80,
-          editor: {
-            type: 'dropDown',
-            dataSource: self.pipeDataSource2,
-            dataValueField: 'SYSDEF_CD',
-            dataTextField: 'SYSDEF_NM'
-          }
+          title: '급여지급여부'
         },
         {
-          field: 'USL_WAGE_AMT',
-          title: '통상임금지급액',
+          field: 'PAY_AMT',
+          title: '통상임금금액',
           width: 100,
           align: 'right',
           formats: {
@@ -513,6 +1078,18 @@
           editor: {
             type: 'number'
           }
+        },
+        {
+          field: 'MM_FIXED_LABORTM_DY',
+          title: '월소정근로시간일수',
+          width: 60,
+          visible: false
+        },
+        {
+          field: 'BIZAREA_CD',
+          title: '사업장코드',
+          width: 80,
+          visible: false
         }
       ],
       fixed: {
@@ -522,11 +1099,32 @@
     });
     
     
-    self.grid2.setDetail(self.grid3);
+    self.mtnityidnfMaster_grid.setDetail(self.MtnityidnfDtl_grid);
     
     
     /*d2692eed-91c6-4644-b7ca-3eed2f04ec7b*/ 
     //# sourceURL=PAMMPM0200.js
+    //self.mtnityidnfMaster_grid.setDetail(self.MtnityidnfDtl_grid);
+    
+    function getStartDate() {
+        var date = new Date();
+        var year = date.getFullYear();              //yyyy
+        var month = (1 + date.getMonth());          //M
+        month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+        return year + '' + month + '01';
+    }
+    
+    function SearchData() {
+        dews.ui.loading.show();
+        self.mtnityidnfMaster_ds.read();
+    
+    }
+    
+    
+    
+    self.WRT_DT.setStartDate(getStartDate());
+    self.WRT_DT.setEndDate(new Date());
+    
     
     
 
